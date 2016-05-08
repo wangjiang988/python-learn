@@ -1,2 +1,2 @@
 # python-learn
-用于自身python学习使用
+仅用于自身python学习课程案例记录及使用.
