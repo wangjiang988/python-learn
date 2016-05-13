@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 # Author: ChenLiang
 
-import getpass
+#import getpass
 
-username = input("请输入用户名: ")
-password = getpass.getpass("请输入你的密码: ")
+#username = input("请输入用户名: ")
+#password = getpass.getpass("请输入你的密码: ")
 
-print(username, password)
+#print(username, password)
