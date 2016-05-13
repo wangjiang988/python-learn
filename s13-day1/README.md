@@ -11,7 +11,8 @@ user_login.py 提供用户登录认证,登录3次失败即锁定用户.
 - getpass 密文显示密码输入
 - time 用户获取系统时间戳
 
-### 流程图展示
+### Blog地址
+[Python_Day1](<http://www.smartczm.com/python_day1.html>)
 
 
 ### 脚本使用
