@@ -2,13 +2,6 @@
 # -*- coding: utf-8 -*-
 # Author: ChenLiang
 
-"""
-编写登录接口
-    输入用户名密码
-    认证成功后显示欢迎信息
-    输入错误三次后锁定
-"""
-
 import getpass  # 导入getpass模块
 import time  # 导入时间模块
 
