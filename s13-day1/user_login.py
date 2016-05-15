@@ -18,7 +18,7 @@ for i in range(3):  # 利用for循环进行计数
         print("您好,用户名不能为空,请重新输入...")
         continue  # 跳出当前,继续执行下面的代码
     else:
-        file = open("user.txt", "r")  # 屌哦那个open方法,以只读方式读取user.txt的文件
+        file = open("user.txt", "r")  # 调用open方法,以只读方式读取user.txt的文件
         index = 0  # 定义user.txt文件行初始计数器
         valid = True  # 定义变量为真,供后面调用
         rm_file_line = False  # 定义变量为假,供后面调用
