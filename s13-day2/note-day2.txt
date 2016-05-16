@@ -1,0 +1,356 @@
+## Note
+
+0 == True
+False
+0 == False
+True
+1 == True
+True
+1 == False
+False
+
+> 字符串拼接
+
+name = 'alex'
+print ("my name is " + name + " and you ?")
+my name is alex and you ?
+
+## 列表
+
+> 通过列表存储名称信息
+
+age = 15
+name = ["Chenlong", "Chenfeng", "Jack", age] # 可以存储各种信息,字符串'数字'变量等
+print(name)
+['Chenlong', 'Chenfeng', 'Jack', 15]
+name[0]  # 通过下标取值
+'Chenlong'
+name[2]
+'Jack'
+name[-1]
+15
+name[0:1]  # 取第一个和第二个的值,需要延后推一位
+['Chenlong']
+name[0:2]
+['Chenlong', 'Chenfeng']
+name[-2:]
+['Jack', 15]
+name[:2]
+['Chenlong', 'Chenfeng']
+name[:3]
+['Chenlong', 'Chenfeng', 'Jack']
+name[:3][:-1]
+['Chenlong', 'Chenfeng']
+name[:3][-1]
+'Jack'
+name[:3][-1][2]
+'c'
+name[:3][-1][3]
+'k'
+
+--->更改值
+name[1] = "WangChenlong"
+name
+['Chenlong', 'WangChenlong', 'Jack', 15]
+
+--->插入值
+name
+['Chenlong', 'WangChenlong', 'Jack', 15]
+name.insert(2,'Guchen')
+name
+['Chenlong', 'WangChenlong', 'Guchen', 'Jack', 15]
+
+--->追加值
+name
+['Chenlong', 'WangChenlong', 'Guchen', 'Jack', 15]
+name.append("alex")
+name
+['Chenlong', 'WangChenlong', 'Guchen', 'Jack', 15, 'alex']
+
+--->删除值
+name
+['Chenlong', 'WangChenlong', 'Guchen', 'Jack', 15, 'alex']
+name.remove("WangChenlong")
+name
+['Chenlong', 'Guchen', 'Jack', 15, 'alex']
+
+... 写一个列表,列表里面包含本组所有成员名字, 往中间位置插入两个邻组成员名字, \
+取出第3-8的人的名称列表, 删除第7个人, 把刚才加入的那2个邻组的人一次性删除, 
+把组长的名字加上组长备注, 要求隔一个人打印一个人...
+name = ["ChenLiang", "WuYanlong", "DuanGuanyang", "LiuKai", "ZhangXunan", "LuShuai", "JiXiang", "LiXuewen"]
+
+--->列表的元素判断
+name = [1,2,3,4,5,6,7,8,9,10,11,9,10,1,5]
+
+print(9 in name)
+if 9 in name:
+    print("9 is in name")
+    
+--->统计元素次数
+if 9 in name:
+    num_of_ele = name.count(9)
+    print("[%s] 9 is/are in name" % num_of_ele)
+    
+--->列表索引查找及更改
+if 9 in name:
+    num_of_ele = name.count(9)
+    position_of_ele = name.index(9)
+    name[position_of_ele] = 9999
+    print("[%s] 9 is/are in name, position:[%s]" % num_of_ele, position_of_ele)
+    print(name)
+    
+--->批量更改列表重复字符串
+for i in range(name.count(9)):
+    ele_index = name.index(9)
+    name[ele_index] = 9999
+    
+print(name)
+
+--->扩展extend,重复字符串也可以添加
+name2 = ["zhangsan", "lishi", "wangsu"]
+name.extend(name2)
+print(name)
+
+--->reverse()反转,字符串反转
+name.reverse()
+
+--->name.pop()删除列表最后一个对象,也可以指定删除
+name.pop(2)
+
+--->name.copy()复制一份列表
+name3 = name.copy()
+name[0] = 'ALEX'
+print(name)
+print(name3)
+
+--->列表嵌套列表,copy()默认只是copy第一层列表,因为第二层数据量很大,浪费很多内存空间
+name = [1,2,3,4,5,6,[55,66,77],9,10,8,7]
+name[6][1] = 554
+
+知识点:列表嵌套小列表,当我们使用copy方法的时候,第一层的列表会完全copy,而深层次的小列表只是copy的一个内存地址
+
+完全copy,内存里面每个列表完全独立
+import copy
+name3 = name.copy()
+id(name3) # 查看内存地址
+name4 = copy.copy(name)
+id(name4)
+name5 = copy.deepcopy(name)
+id(name5)
+
+--->sort排序,默认不能数字掺杂字符串排序
+name.sort()
+
+'''
+写一个列表,找出有多少个9,把它改成9999,同时找出所有的34,把它删掉
+'''
+
+--->元组
+r = (1, 2, 3, 4, 5) # 只读列表,元组
+
+## 字符串操作
+username = input("Username: ")
+if username.strip() == 'alex':
+    print("Welcome %s") % username
+    
+--->通过,组成一个列表
+names = "alex,jack,rain"
+name2 = names.split(",")
+
+--->按照|来进行合并
+print( "|".join(name2))
+
+name = "Alex Li"
+print('' in name) # 判断字符串中是否有空格
+
+name = "alex li"
+print(name.capitalize()) # 首字母大写
+
+name.format()  # 字符串格式化
+
+msg = "Hello, {name}, it's been a long {age} since last time sopke..."
+msg2 = msg.format(name='Linux', age=333)
+print(msg2)
+
+msg2 = "hehe{0}, helo{1}"
+print(msg2.format('alex', 33))
+
+print(name[2:4])
+
+name = "Chen Liang"
+print(name.center(40, '-'))
+
+print(name.find('l')) # 查找字符串索引,不存在则返回-1
+
+--->数字,字母判断
+age = input("Your Age: ")
+if age.isdigit():
+    age = int(age)
+    print(age)
+else:
+    print("Invalid data type")
+
+name = 'alex!sf'
+print(name.isalnum()) # 不能包含特殊字符
+
+print(name.endswith('df')) # 以...结尾
+
+print(name.startswith('dfsd')) # 以...开始
+
+print(name.upper().lower()) # 大小写转换
+
+--->运算符
+a,b,c = 3,5,7
+a > 2 and c < 7
+a > 2 and c < 8 and b > 4
+
+a > 2 or c < 5
+
+if not a > 2 and c < 2 and b >4 or c == 8:print('ddd')
+
+--->二进制
+1024      512      256      128      64      32      16      8     6      4      1
+0         0        0        0        0       0       0       0     0      0      0
+1         1        1        1        1       1       1       1     1      1      1
+
+8    4    2    1
+0    0    0    0
+0    1    0    1  =  5
+1    0    0    1  =  9
+——————————————————————————
+1    1    1    0  =  14
+
+计算机中能表示的最小单位,是一个二进制位
+计算机中能存储的最小单位,是一个二进制位(bit)
+
+8bit = byte(字节)
+1024byte = 1kbyte
+1024kbyte = 1mbyte
+1mbyte = 1gbyte
+1024gbyte = 1Tbyte
+
+example: a = 60 , b = 40
+0011 1100 = 60
+0000 1101 = 13
+a & b               and
+——————————————————————————
+0000 1100 = 12
+a | b               or
+——————————————————————————
+0011 0001 = 61
+
+二进制除法比正常的运算速度会很快
+64<<1
+12>>2
+
+## while loop
+死循环
+
+## dict字典  -- 字典是无序的,没有下标,字典通过key获取值
+
+-#- name = [1, [23, 'sandro', 'dinging'], 4, 5, 6, [23, 'sandro', 'dinging'], 7]
+-#- print(name.index(212))
+
+--dict
+
+id_db = {
+    510824134010130534: {
+        'name': "Alex Li",
+        'age': 22,
+        'addr': 'ShanDong'
+    },
+    220182143511229843: {
+        'name': "Xin Fan",
+        'age': 25,
+        'addr': 'FengDong'
+    },
+        220182143511229743: {  # Key必须唯一
+        'name': "Da Xin Fan",
+        'age': 28,
+        'addr': 'FengDong'
+    },
+}
+
+print(id_db[510824134010130534]) # 取值
+id_db[510824134010130534]['name'] = 'Xiao Hu' # 修改
+id_db[510824134010130534]['qq_write'] = '34123223' # 添加新value
+print(id_db[510824134010130534])
+del id_db[510824134010130534]['addr'] # 删除
+id_db[510824134010130534].pop('addr') # 删除
+id_db.copy() # 等于列表的copy
+print(id_db)
+
+id_db[510824134010130534]
+id_db[5108241340101305343] # 取值不存在时会报错
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 5108241340101305343
+
+id_db.get(510824134010130534) # 取值不报错,解决上面取值报错问题
+
+dic2 = {
+    'name':'yes',
+     220182143511229743: {  # Key必须唯一
+     'name': "Da Xin Fan",
+     'age': 28,
+     'addr': 'FengDong'
+    },    
+}
+id_db.update(dic2) # 更新值,id_db字典会和dic2字典同步
+print(id_db)
+print(id_db.items()) # 字典列表转换
+print(id_db.values()) # 获取values
+print(id_db.keys()) # 获取key值
+220182143511229743 in id_db # 判断值是否在字典中
+print(id_db.setdefault(220182143511229743,"N/A")) # 取一个key如果存在就返回,如果不存在就添加默认值
+print(id_db)
+
+print(dict.fromkeys([1,2,3,4,5,6,7],"dddd")) # 一个key对应一个value,生成新的字典
+
+print(id_db.popitem()) # 随机删除
+
+循环字典:
+for k,v in id_db.items(): # 效率低,因为要有一个字典转换list的过程
+    print(k,v)
+    
+    
+for key in id_db: # 效率比较高,推荐使用
+    print(key,id_db[key])
+
+
+## 购物小程序
+用户启动时输入工资
+用户启动程序后打印商品列表
+允许用户选择购买商品
+允许用户不断的购买各种商品
+购买时监测余额是否足够,如果足够直接扣款,否则打印余额不足.
+允许用户主动退出程序,退出时打印已购商品列表.
+
+
+作业:
+1. 优化购物程序,购买时允许用户选择购买多少件
+2. 允许多用户登录,下一次登录后,继续按上次的余额继续购买(可以充值)
+3. 允许用户查看之前购买记录(记录要显示商品购买时间)
+4. 商品列表分级展示，比如 
+	第一层菜单：
+	1.	家电类
+	2.	衣服
+	3.	手机类
+	4.	车类
+	。。。
+	随便选择一个，比如车类，进入第2层
+		1. BMW X3 33333
+		2. Audi Q5 33355
+		3. Pasate  33335
+		4. Tesla Model_3 430000
+		5. Tesla Model S 8888888
+5. 显示已购买商品时， 如果有重复的商品， 不打印多行，而是在一行展示，如
+		id	p_name		num		total_price
+		1. TeslaModelS  2 		34242424
+		2. Coffee		2 		60 
+		3. Bike 		1 		700
+			
+
+## --->新知识用到文件的处理,datetime模块,json序列化
+
+
