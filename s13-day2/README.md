@@ -71,4 +71,4 @@ or
  python3 shopping_mall_v1.py
 ```
 
-[Python Day2](<http://www.smartczm.com/python_day2.html>)
+[Python Day2 Blog](<http://www.smartczm.com/python_day2.html>)
