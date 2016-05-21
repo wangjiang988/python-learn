@@ -19,7 +19,7 @@ money_total = 0
 s_time = ''
 
 
-def print_shop_car():
+def print_shop_car():  # 定义函数,供程序调用
     print("购物车".center(50, "*"))
     data = shop_car
     if s_time != '':
@@ -35,14 +35,14 @@ def print_shop_car():
     return
 
 
-def sel_history():
+def sel_history():  # 定义函数,供程序调用
     with codecs.open("dump.txt", "r", "utf-8") as o_his:
         o_line = o_his.readlines()
         for i_line in o_line:
             print(i_line)
 
 
-def user_info():
+def user_info():  # 定义函数,供程序调用
     shop_user = username
     print(u"欢迎登录商场购物平台, {0:s}".format(shop_user))
 

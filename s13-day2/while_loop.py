@@ -8,7 +8,7 @@ while True:
     if 50 < count < 60:
         # if count > 50 and count < 60:
         continue
-    print(u"{0:03d} 您是风儿,我是沙...".format(count))
+    print(u"{0:03d}  您是风儿,我是沙...".format(count))
     if 100 == count:
         print("Fuck,Gun...")
         break
