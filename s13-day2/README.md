@@ -65,12 +65,10 @@ id	p_name		num		total_price 
 ## Run
 
 
-```shell   
+```txt
 chmod +x shopping_mall_v1.py ; ./shopping_mall_v1.py     
 or    
  python3 shopping_mall_v1.py
 ```
 
 [Python Day2](<http://www.smartczm.com/python_day2.html>)
-
-
