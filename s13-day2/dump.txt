@@ -1,1 +1,0 @@
-id        num       p_name        total_price

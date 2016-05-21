@@ -5,6 +5,7 @@ import time
 import getpass
 from datetime import datetime
 import sys
+import codecs
 
 prod_list = {
     '汽车类': {'Benz': 1000000, 'BMW': 2000000, 'Audi': 800000, 'Tesla': 820000},
@@ -15,38 +16,55 @@ prod_list = {
 shop_car = {}  # 定义购物车变量
 salary = 100000
 money_total = 0
+s_time = ''
 
 
 def print_shop_car():
-    print("您所购买的产品信息如下".center(50, "*"))
+    print("购物车".center(50, "*"))
     data = shop_car
-    print("订单生成时间为: ", s_time)
-    print("id".ljust(20, " "), "p_name".ljust(20, " "), "num".center(16, " "), "total_price".rjust(22, " "))
-    for data_id, data_key in enumerate(data):
-        print(int(data_id + 1), "".ljust(18, " "), data_key, "".rjust(20, " "), int(data[data_key][0]),
-              "".rjust(24, " "), int(data[data_key][2]))
-    print("END".center(58, "*"))
-    print("您的余额为: \033[32;1m%s\033[0m" % salary)
+    if s_time != '':
+        print("订单生成时间为: ", s_time)
+        print("id".ljust(20, " "), "p_name".ljust(20, " "), "num".center(16, " "), "total_price".rjust(22, " "))
+        for data_id, data_key in enumerate(data):
+            print(int(data_id + 1), ".", "".ljust(18, " "), data_key, "".rjust(20, " "), int(data[data_key][0]),
+                  "".rjust(24, " "), int(data[data_key][2]))
+        print("END".center(58, "*"))
+        print("您的余额为: \033[32;1m%s\033[0m" % salary)
+    else:
+        print("\033[31;1m没有生成订单记录,请开始购物\033[0m")
     return
+
+
+def sel_history():
+    with codecs.open("dump.txt", "r", "utf-8") as o_his:
+        o_line = o_his.readlines()
+        for i_line in o_line:
+            print(i_line)
+
+
+def user_info():
+    shop_user = username
+    print(u"欢迎登录商场购物平台, {0:s}".format(shop_user))
 
 
 welcome_msg = '欢迎来到新世纪购物中心'.center(50, '-')  # 定义环境信息
 print(welcome_msg)
-welcome_info = """
+welcome_info = """\033[33;1m
 请先创建用户或者登录平台进行购物:
 1: 用户注册
 2: 用户登录
 3: 退出系统
-""".center(159, '*')
+\033[0m""".center(159, '*')
 
-shop_select = """
+shop_select = """\033[33;1m
 请选择编号继续进行购物:
 a: 开始购物
 c: 查看购物车
 m: 充值
 b: 返回主界面
+h: 查看历史购买信息
 q: 退出系统
-""".center(159, '*')
+\033[0m""".center(159, '*')
 while True:
     print(welcome_info)
     u_choice = input("请输入你要选择的编号: ")
@@ -124,7 +142,9 @@ while True:
                                             init_count += 1  # 自加,用于记录计数器的值
                                             continue  # 跳出当前
                                         else:  # 如果用户名和密码对应,打印欢迎界面
-                                            print("欢迎登录商场购物平台, %s" % username)
+                                            print(u"欢迎登录商场购物平台, {0:s}".format(username))
+                                            with codecs.open("dump.txt", "a", "utf-8") as user_shop:
+                                                user_shop.write("用户" + str(username) + "购物历史:" + '\n')
                                             break
                                     if 3 == init_count:  # 判断如果计数器为3,锁定用户登录
                                         print("\033[31;1m账号输入次数过多,账号已经锁定!!!\033[0m")
@@ -178,14 +198,12 @@ while True:
                                                 if user_c == key_2:
                                                     p_money = prod_list[item_value].get(value_2)
                                                     p_money = int(p_money)
-                                                    # p_value = 'value_2, prod_list[item_value].get(value_2)'
                                                     user_shop_num = input("请输入您需要购买的商品数量: ")
                                                     if user_shop_num.isdigit():
                                                         user_shop_num = int(user_shop_num)
                                                         car_int = 0
                                                         for snum in range(user_shop_num):
                                                             if p_money <= salary:  # 判断商品金额是否小于或者等于工资金额,小于则可以购买,否则提示余额不足
-                                                                # shop_car.append(list(value_2))  # 放入购物车
                                                                 buy_pool = [value_2]
                                                                 num = 1
                                                                 spend = p_money
@@ -204,7 +222,6 @@ while True:
                                                                     for user_9 in read_9.readlines():
                                                                         _user, _passwd, _money = user_9.strip().split(
                                                                             ":")
-                                                                        # _salary = (salary - int(money_total))
                                                                         m_money = "%s:%s:%s\n" % (
                                                                             _user, _passwd, salary)
                                                                         read_9.seek(0, 0)  # 还原文件偏移位置
@@ -212,12 +229,18 @@ while True:
                                                                 car_int += 1
                                                                 money_total += p_money
                                                                 print(
-                                                                    "已添加商品 %s 到购物车, 购买时间为: %s, 总价为: %s, 您当前余额为, \033[31;1m%s\033[0m" % (
-                                                                        value_2, s_time, money_total,
+                                                                    "已添加商品 %s x %s 到购物车, 购买时间为: %s, 总价为: %s, 您当前余额为, \033[31;1m%s\033[0m" % (
+                                                                        value_2, car_int, s_time,
+                                                                        money_total,
                                                                         salary))  # 打印购买商品信息,同时显示余额信息
-                                                                r_list = ( "已添加商品 %s 到购物车, 购买时间为: %s, 总价为: %s, 您当前余额为, \033[31;1m%s\033[0m" % (
-                                                                        value_2, s_time, money_total,
+                                                                his_list = (
+                                                                    "已添加商品 %s x %s 到购物车, 购买时间为: %s, 总价为: %s, 您当前余额为, %s" % (
+                                                                        value_2, car_int, s_time,
+                                                                        money_total,
                                                                         salary))
+                                                                with codecs.open("dump.txt", "a", "utf-8") as his_shop:
+                                                                    his_shop.seek(0, 0)
+                                                                    his_shop.write(str(his_list) + '\n')
                                                             else:
                                                                 print(
                                                                     "您的余额不足以购买此产品: \033[32;1m%s\033[0m,请进行充值" % salary)  # 余额不足提示
@@ -231,6 +254,9 @@ while True:
                         print("\033[31;1m输入错误,返回上一级菜单!!!\033[0m")
                         exit_flag = True
                         break
+                elif num_choice == 'h' or num_choice == 'history':
+                    sel_history()
+                    continue
                 elif num_choice == 'b' or num_choice == 'back':
                     exit_flag = True
                     break
