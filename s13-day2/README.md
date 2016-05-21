@@ -54,7 +54,7 @@ shopping_mall_v1.py - 主程序
     3. Pasate  33335
 ```
 
-* 实现显示已购买商品时， 如果有重复的商品， 不打印多行，而是在一行展示，如
+* 实现显示已购买商品
 
 ```txt
 id	p_name		num		total_price 		
