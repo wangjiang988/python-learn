@@ -1,0 +1,354 @@
+list:
+
+1,set 集合 数据类型
+
+2,函数
+    自定义函数
+    python内置函数
+
+3,装饰器
+    用于装饰函数,提升逼格..高大上
+
+
+1、set （无序，不重复的序列（去重）、集合）
+
+how create set：
+se ＝ {"123", "456"}
+大括号＋一个元素
+print(type(se))
+
+PS: 另一种创建方式
+list() == list __init__
+list((1, 2, 3, 4, 5))
+list __init__ , 内部执行for循环（1, 2, 3, 4, 5），创建一个列表
+
+s = set()  # 创建一个空的集合
+li = [11,22,11,22]
+s1 = set(li)
+
+* s1 = {} 创建
+* s2 = set() 创建
+* s3 = set([11,22,11,22]) 创建集合
+
+2、功能
+
+* add 添加元素
+s = set()
+print(s)
+s.add(123)
+s.add(123)
+s.add(123)
+print(s)
+
+# 最终结果还是1个,只要添加过一次,就不需要再添加
+
+＊ clear 清除元素
+
+＊ copy 浅copy
+
+＊ difference 对比
+s1 = {11, 22, 33}
+s2 = {22, 33, 44}
+s3 = s1.difference(s2)
+# s1中存在,s2中不存在的结果
+print(s3)
+s4 = s2.difference(s1)
+# s2中存在,s1中不存在的结果
+
+＊ symmetric_difference 对称查询
+s1 = {11, 22, 33}
+s2 = {22, 33, 44}
+s3 = s1.symmetric_difference(s2)
+# 对称查询
+
+* difference_update
+s1 = {11,22,33}
+s2 = {22,33,44}
+s1.difference_update(s2) # s2中不存在的更新到s1
+print(s1)
+
+* discard 移除指定元素，不存在不报错
+* remove 移除打印结果，同时报错提醒
+* pop 随机移除某个元素，并且打印结果
+ret = s1.pop()  记录移除元素，赋值给ret
+
+* intersection 取两个集合的交集
+s1 = {11, 22, 33}
+s2 = {22, 33, 44}
+s3 = s1.intersection(s2)
+print(s3)
+
+* intersection_update
+s1.intersection_update(s2)
+print(s1)
+
+* union 并集
+
+* update 更新，接收可以被for循环的对象
+可迭代对象：列表、元组、字符串
+
+__init__ 双下划线都代表特定的方法
+
+li = [11,22,33] # list __init__
+li()            # list __call__
+li[0]
+li[0] = 123
+
+Case： 
+
+old_dict = {
+	"#1": 8,
+	"#2": 4,
+	"#4": 2,
+}
+
+new_dict = {
+	"#1": 8,
+	"#2": 4,
+	"#3": 2,
+}
+
+Q: 应该删除哪几个槽位
+	1、old_dict中存在，new_dict中不存在的key
+>>> new_set = set(new_dict.keys())
+>>> old_set = set(old_dict.keys())
+>>> remove_set = old_set.difference(new_set)
+
+Q: 应该更细哪几个槽位
+>>> add_set = new_set.difference(old_set)
+
+Q: 应该增加哪几个槽位
+>>> update_set = old_set.intersection(new_set)
+
+
+＃ 函数， 重复功能为面向过程编程，代码可读性差，代码重用性差； 用于封装一个功能
+代码函数式编程，解决上述功能
+
+定义函数：
+	1、关键字def，创建函数
+	2、函数名
+	3、()固定搭配
+	4、函数体，定义具体做什么事情
+	5、返回值，定义函数体返回值
+
+PS:     # 在函数中,一旦遇到return,函数执行过程立即终止
+
+函数默认return值为None
+
+传参：
+	1、普通参数
+	2、默认参数 （给某个参数指定默认参数，那么这个形式参数必须放在结尾，不能这样写(xx, yy="yes", oo)）
+	3、指定参数
+	4、动态参数(*,**) *,默认将传入的参数全部放置在元组中;**,默认将传入的参数全部放置在字典中
+	5、万能参数(*args, **kwargs) # 必须一个*在前面，两个*在后面
+
+def sendmail(r_user, content, ss="OK"):  # 形式参数,传递变量参数,可以传递多个形式参数
+ss="OK" 为默认参数，如果不指定就传递OK，否则手动传参
+
+def sendmail(r_user, content, ss="OK"): 
+如果想指定参数：content="内容", r_user="1@qq.com"
+
+动态参数
+*args 可传递多个参数，如(a, b, c)，默认将传入的参数全部放置在元组中。
+fa(*[列表])
+**args，传值必须用指定参数传值，默认会成为字典，如n1="a", n2="b"
+or
+dic = {'1';'2', '2':'3'}
+f1(**dic) ，如果形式参数有两个*，通过传参加**，默认将传入的参数全部放置在字典中。
+fa(**{字典})
+
+def f1(*args, **kwargs)  # 顺序位置不能颠倒，必须一个*在前面，两个*在后面
+	print(args)
+	print(kwargs)
+f1(11,22,33,44,k1 = "v1", k2 = "v2")
+
+# str.format()
+# str format 格式化输出
+# %s %d %f
+s = "I am {0}, age {1}".format("alex", 18)  # {}代表占位符
+
+
+# 补充，
+* python执行会默认依从之行，所以最终的返回结果为64
+def f1(a1, a2):
+	return a1 + a2
+
+def f1(a1, a2):
+	return a1 * a2
+
+ret = f1(8, 8)
+print(ret)
+
+* 对于函数来说，python传递参数的时候传递的是一份引用，而不是copy
+def f1(a1):
+	a1.append(999)
+
+li = [11,22,33,44]
+f1(li)
+
+print(li)
+
+* 全局变量, 对于函数体来说，自己本身创建的变量，只能用于自己本身的作用域，而不能被全局调用
+def f1():
+	name = 'alex'
+	print(name)
+
+def f2():
+	print(name)
+
+name = 'alex' # 函数体之外创建，全局变量
+def f1():
+	age = 18
+	global name #  表示，name是全局变量
+	print(age, name)
+
+def f2():
+	age = 19
+	print(age, name)
+
+f1()
+f2()
+ － 全局变量，默认所有作用域都能读
+ － 局部变量，优先在自己作用域读取变量，如果没有再去父层查找
+ － 如果修改（重新赋值）全局变量，需要先global name，然后修改 # 表示，name是全局变量
+ － 特殊：如果name为列表，可以通过局部为列表添加值(append),但不能重新赋值。
+ － 全局变量一定要全部使用大写
+
+
+# 三元运算、三目运算
+
+name = 'alex' if 1 == 1 else "SB" # 等于ifelse的简写
+
+# python内置函数
+# abs 绝对值
+
+n = abs(-1)
+print(n)
+
+# bool 为false的值
+print(bool(None))
+print(bool(0))
+print(bool())
+print(bool([]))
+print(bool({}))
+print(bool(()))
+
+# all 所有值为真才为真
+n = all([1, 2, 3, 4, 5])
+print(n)
+
+# any 任意一个为真才为真
+n = any([1, 2, [], None])
+print(n)
+
+
+# ascii() 自动执行对象的__repr__方法
+# class Foo:
+#     def __repr__(self):
+#         return "111"
+#
+#
+# n = ascii(Foo())
+# print(n)
+
+# bin  # 10进制转换为2进制
+# oct  # 10进制转换为8进行制
+# hex  # 10进制转换为16进制
+print(bin(5))
+print(oct(5))
+print(hex(5))
+
+# utf-8 一个汉字: 三个字节
+# gbk 一个汉字: 两个字节
+# bytes  # 想将字符串转换为字节类型,需要用bytes(转换的字符串, 按照什么编码)
+s = "陈亮"  # 一个字节8位,一个汉字三个字节
+#
+n = bytes(s, encoding='utf-8')
+print("\033[31;1mUTF-8转换字节为:\033[0m %s" % n)
+
+n = bytes(s, encoding='gbk')
+print("\033[31;1mGBK转换字节为:\033[0m %s" % n)
+
+# bytearray()  # 创建字节数组
+
+# 字节转化为字符串
+new_str = str(bytes(s, encoding='utf-8'), encoding='utf-8')
+print("\033[31;1m字节转化为字符串:\033[0m %s" % new_str)
+
+# 文件操作
+# 打开文件
+# f = open("db", "r")  # 只读
+# f = open("db", "w")  # 只写,会将文件先清空
+# f = open("db", "x")  # 如果文件存在就报错,否则,创建并写内容
+# f = open("db", "a")  # 追加内容.seek 标志位偏移
+with open("db", "r", encoding='utf-8') as f:
+    read_f = f.read()
+    print("读取UTF-8编码的内容: ", read_f)
+
+# f = open("db", "rb") # 告诉python直接使用二进制处理
+with open("db", "rb") as f:
+    read_f = f.read()
+    print("读取二进制: ", read_f, type(read_f))
+
+with open("db", "ab") as f:
+    write_f = f.write(bytes("陈亮", encoding='utf-8'))
+    print("写入二进制: ", write_f, type(write_f))
+
+# f = open("db", "r+")  # 可读可写  **用的最多的**
+# f = open("db", "w+")  # 可读可写
+# f = open("db", "x+")  # 可读可写
+# f = open("db", "a+")  # 可读可写
+# 默认情况下,文件是有指针,当完全遍历一遍文件之后,指针的位置在文件末尾
+# 如果打开模式无b,则read,按照字符读取
+with open("db", "r+", encoding="utf-8") as f:
+    data = f.read()
+    print(data)
+    # tell当前指针所在的位置(字节)
+    print(f.tell())  # 获取当前指针的位置
+    # 调整当前指针的位置(字节)
+    f.seek(f.tell())  # 主动把指针调整到某个位置,永远以字节的方式去找位置
+    # 当前指针位置开始向后覆盖
+    f.write("777")
+# 操作文件
+# f.read()  # 通过源码查看文件
+# 无参数,读取全部,有参数,b,按照字节,无b按照字符
+# tell()  # 获取当前指针位置(字节)
+# seek()  # 指针跳到指定位置(字节)
+# write() # 写数据,b,字节,无b,字符
+# fileno() # 文件描述符
+# flush() # 强刷内容到硬盘
+# readable() # 是否可读
+# seekable() # 是否可以移动指针
+# readline # 仅读取一行,
+# writeable() # 是否可写
+# truncate() # 截断,通过seek指针位置来清空
+# for 循环文件对象 # 常用操作,文件读行
+with open("db", "r") as f:
+    for line in f:
+        print(line)
+
+# 关闭文件
+# f.close()
+# with open("db", "a") as f:
+#    pass
+
+# 通过with可以同时操作多个文件
+with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8') as f2:
+    times = 0
+    for line in f1:
+        times += 1
+        if times <= 10:
+            f2.write(line)
+        else:
+            break
+
+# 把一个文件的前10行,写到另外一个文件的后10行
+
+# 修改alex到eric
+with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8') as f2:
+    for line in f1:
+        new_str = line.replace("alex", "st")
+        f2.write(new_str)
+
+
+作业：
