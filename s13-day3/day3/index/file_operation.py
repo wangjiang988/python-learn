@@ -66,7 +66,7 @@ def add(dict_info):  # 定义add函数，同时传入参数dict_info,字典参�
             temp = " " * 8 + context_record + "\n"
             write_obj.write(temp)
 
-    os.rename('haproxy.cfg', 'haproxy.cfg.bak')  # 将原文件配置文件改名备用文件为配置文件b
+    os.rename('haproxy.cfg', 'haproxy.cfg.backup')  # 将原文件配置文件改名备用文件为配置文件backup
     os.rename('new_haproxy.cfg', 'haproxy.cfg')  # 将new_配置文件改名为配置文件
 
 
