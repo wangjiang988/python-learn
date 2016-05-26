@@ -31,6 +31,7 @@
 
 ### 目录介绍
 
+```txt
 day3  # 项目主目录    
 ├── README.md   # README文件    
 └── index    # 程序主目录    
@@ -38,6 +39,7 @@ day3  # 项目主目录
     └── haproxy.cfg  # 配置文件
     
 1 directory, 3 files
+```
 
 ### QuickStart
 
