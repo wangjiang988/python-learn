@@ -32,7 +32,7 @@
 ### 目录介绍
 
 day3  # 项目主目录
-├── README.md   # README文锦啊
+├── README.md   # README文件
 └── index    # 程序主目录
     ├── file_operation.py  # 程序文件
     └── haproxy.cfg  # 配置文件
