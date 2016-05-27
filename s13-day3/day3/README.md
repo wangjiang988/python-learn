@@ -16,9 +16,13 @@
 > haproxy配置文件更改
 
 * 获取记录
+    * 通过输入backend相关的域名来获取backend下面的条目记录
 * 增加记录
+    * 通过输入固定条目:'{"backend":"abc.oldboy.org","record":{"server":"100.1.7.9","weight":"20","maxconn":"3000"}}'来将backend或者record下面的value信息加入到配置文件中
 * 删除记录
+    * 通过输入固定条目:'{"backend":"abc.oldboy.org","record":{"server":"100.1.7.9","weight":"20","maxconn":"3000"}}'来将backend或者record下面的value信息从配置文件中删除
 * 恢复初始配置
+    * 通过备份的配置文件版本信息来还原操作
 
 ## 使用说明
 
