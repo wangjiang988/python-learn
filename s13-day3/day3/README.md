@@ -13,7 +13,7 @@
 
 ## 程序功能介绍
 
-> haproxy配置文件更改
+> haproxy配置文件操作
 
 * 获取记录
     * 通过输入backend相关的域名来获取backend下面的条目记录
