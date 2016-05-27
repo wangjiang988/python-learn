@@ -47,7 +47,7 @@ def json_format():
     try:
         global DICT_FORMAT
         print("\033[32;1m请按以下格式输入:\033[0m ")
-        print('{"backend":"abc.oldboy.org","record":{"server":"100.1.7.9","weight":"20","maxconn":"3000"}}')
+        print('{"backend":"abc.oldboy.org","record":{"server":"100.0.0.100","weight":"20","maxconn":"3000"}}')
         read_str = input("\033[30;1m请输入需要操作的信息>>>\033[0m ")
         DICT_FORMAT = json.loads(read_str)
     except:
