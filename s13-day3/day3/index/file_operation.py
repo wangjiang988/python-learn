@@ -41,7 +41,7 @@ def get(backend):
 
 def json_format():
     """
-    : 用于异常捕获
+    : 用json转换用户输入,同时用于捕获异常输入
     :return:
     """
     try:
@@ -134,7 +134,7 @@ def recovery():
     :return:
     """
     print("请输入你要恢复的版本: 1. 执行添加操作之前的版本; 2. 执行删除操作之前的版本")
-    in_num = int(input("请输入你要删除的版本编号: "))
+    in_num = int(input("请输入你要恢复的版本编号: "))
     if in_num == 1:
         os.rename('haproxy.cfg.add.%s' % FTIME, 'haproxy.cfg')
         print("\033[34;1m恢复配置文件成功,恢复文件为haproxy.cfg.add.%s\033[0m" % FTIME)
