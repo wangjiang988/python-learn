@@ -25,15 +25,16 @@ def get(backend):
     : 把数据加入列表
     :return: 获取get_list值
     """
-    flag = False
     get_list = []
     with open("haproxy.cfg", "r", encoding="utf-8") as obj:
+        flag = False
         for line in obj:
-            if line.strip() == "backend %s" % (backend):
+            if line.strip().startswith("backend") and line.strip() == "backend " + backend:
                 flag = True
                 continue
-            if flag and line.strip().startswith('backend'):
+            if flag and line.strip().startswith("backend"):
                 flag = False
+                break
             if flag and line.strip():
                 get_list.append(line.strip())
     return get_list

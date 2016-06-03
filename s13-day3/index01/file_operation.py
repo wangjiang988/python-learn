@@ -25,15 +25,16 @@ def get(backend):
     : 把数据加入列表
     :return: 获取get_list值
     """
-    flag = False
     get_list = []
     with open("haproxy.cfg", "r", encoding="utf-8") as obj:
+        flag = False
         for line in obj:
-            if line.strip() == "backend %s" % (backend):
+            if line.strip().startswith("backend") and line.strip() == "backend " + backend:
                 flag = True
                 continue
-            if flag and line.strip().startswith('backend'):
+            if flag and line.strip().startswith("backend"):
                 flag = False
+                break
             if flag and line.strip():
                 get_list.append(line.strip())
     return get_list
@@ -71,21 +72,39 @@ def add(dict_info):
         title_name = "backend %s" % (backend_name)
         record_context = dict_info["record"]
         context_info = "server %s %s weight %s maxconn %s" % (record_context["server"], record_context["server"], record_context["weight"], record_context["maxconn"])
-        flag = False
-        temp = "%s%s\n" % (" " * 8, context_info)  # 把列表的记录赋值给temp,同时按照格式添加记录预留8个空格
-        with open("haproxy.cfg", "r", encoding="utf-8") as obj_read, open("new_haproxy.cfg", "w", encoding='utf-8') as obj_write:
-            for line in obj_read:
-                obj_write.write(line)
-                if flag is not True and line.strip() == title_name:
-                    obj_write.write(temp)
-                    flag = True
-
-            if flag is not True:
-                obj_write.write("\n" + title_name)
-                obj_write.write("\n" + temp)
-
-        os.rename('haproxy.cfg', 'haproxy.cfg.add.%s' % FTIME)  # 将haproxy.cfg改名haproxy.cfg.backup
-        os.rename('new_haproxy.cfg', 'haproxy.cfg')  # 将new_haproxy.cfg改名为原有haproxy.cfg
+        record_list = get(backend)
+        if not record_list:
+            # backend不存在
+            with open("haproxy.cfg", "r", encoding="utf-8") as obj_read:
+                for line in old:
+                    obj_read.write(line)
+                obj_read.write("\nbackend" + backend + "\n")
+                obj_read.write(" " * 8 + context_info + "\n")
+        else:
+            # backend存在
+            if context_info in record_list:
+                # record已经存在
+                import shutil  # copy文件
+                shutil.copy("haproxy.cfg", 'haproxy.cfg.new.%s' % FTIME)
+            else:
+                # backend存在,record不存在
+                record_list.append(context_info)
+                with open('haproxy.cfg', 'r') as old, open('new_haproxy.cfg', 'w') as new:
+                    flag = False  # 设置标记位默认为False
+                    for line in old:  # for循环读文件
+                        # 如果起始位置是backend并且backend内容相等
+                        if line.strip().startswith("backend") and line.strip() == "backend " + backend:
+                            flag = True  # flag标志位置为True
+                            new.write(line)
+                            for new_line in record_list:
+                                new.write(" " * 8 + new_line + "\n")
+                            continue
+                        if flag and line.strip().startswith("backend"):
+                            flag = False
+                            new.write(line)
+                            continue
+                        if line.strip() and not flag:
+                            new.write(line)
     except:
         return False
     else:

@@ -32,7 +32,7 @@ print(n)
 # n = ascii(Foo())
 # print(n)
 
-# bin  # 10进制转换为2进制
+# Decorator  # 10进制转换为2进制
 # oct  # 10进制转换为8进行制
 # hex  # 10进制转换为16进制
 print("\033[31;1m10进制转换为2进制:\033[0m ", bin(5))

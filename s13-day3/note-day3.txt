@@ -352,3 +352,4 @@ with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8'
 
 
 作业：
+http://www.cnblogs.com/wupeiqi/articles/4950799.html

@@ -1,0 +1,137 @@
+作业
+内置函数
+装饰器
+
+
+内置函数：
+
+callable()  # 表示是否可以被执行，被调用。
+print(callable(f1))
+
+# 返回以数值表达式值为ascii编码的字符
+chr() 
+eg
+>>> chr(65)
+'A'
+
+# 参数是一个ascii字符，返回值是对应的十进制整数
+ord()
+>>> n = ord("B")
+>>> print(n)
+66
+
+# random 模块,指定一个范围，在范围内生成随机的数字
+# 验证码生成
+import random
+num = random.randrange(65, 91)
+ret = chr(num)
+
+print(c)
+li = []
+for i in range(6):
+	temp = random.randrange(65, 91)
+	ret = chr(temp)
+	li.append(ret)
+
+result = "".join(li)
+print(result)
+
+compile()
+eval()
+exec()
+
+解释器打开文件步骤：
+1、读取文件内容open，str到内存
+2、python, 把字符串－编译 ＝ 特殊代码
+3、执行代码
+
+complex处理复数
+
+delattr反射
+
+dict字典
+
+dir 快速获取对象提供的功能
+help(list)  获取对象的帮助
+
+# 分页功能: 共97, 每页显示10条,需要多少页?
+r = divmod(97, 10)
+print(r)
+
+enumerate枚举
+
+isinstance 判断对象是否是某个类的实例
+
+filter 可迭代的对象,函数返回True,将元素添加到结果中
+map 函数,可迭代对象,就是for循环,将函数返回值添加到结果中
+
+float 浮点型转换
+frozenset 不可变集合
+
+globals 代表所有全局变量
+locals 代表所有局部变量
+
+hash hash值生成,用于字典的key来保存
+
+hex 十进制转换为十六进制
+oct 十进制转八进制
+
+id 查看内存地址
+
+input 等待用户输入
+
+int 整形
+
+len 查看长度
+
+鸡汤：
+林达看美国
+人生不是一场马拉松
+
+json 将一个字符串转换成python的基本数据类型
+PS：字符串形式的字典、列表内部的字符串必须是双引号
+
+
+max(最大值)、min(最小值)、sum(求合)
+
+memoryview 和内存地址相关的类
+
+iter、next
+
+r = pow(2, 10) == 2**10
+
+range范围
+
+round 四舍五入
+
+slice 切片
+
+sorted 排序
+
+vars 当前模块都有哪些变量
+
+
+>>> l1 = ["alex", 11, 22, 33]
+>>> l2 = ["is", 11, 22, 33]
+>>> l3 = ["sb", 11, 22, 33]
+>>> l1[0] + l2[0] + l3[0]
+'alexissb'
+>>> l1[0] +" "+ l2[0] +" "+ l3[0]
+'alex is sb'
+
+r = zip(l1, l2, l3)
+temp = list(r)[0]
+ret = ' '.join(temp)
+print(ret)
+
+
+bytes
+devmod
+eval
+exec
+isinstrance
+range
+
+装饰器： @+函数名 统一开放封闭原则，添加新功能尽量再函数外部添加
+
+函数整体可以当作参数来传递
