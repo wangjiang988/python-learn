@@ -9,26 +9,23 @@
 
 ## 背景介绍
 
-> 公司有haproxy配置文件，希望通过python程序可以对ha配置文件进行增删改，不再是以往的打开文件进行直接操作
+> 需要对账号管理平台进行用户相关操作
 
 ## 程序功能介绍
 
-> haproxy配置文件操作
+> 用户管理操作
 
-* 获取记录
-    * 通过输入backend相关的域名来获取backend下面的条目记录
-* 增加记录
-    * 通过输入固定条目:'{"backend":"abc.oldboy.org","record":{"server":"100.1.7.9","weight":"20","maxconn":"3000"}}'来将backend或者record下面的value信息加入到配置文件中
-* 删除记录
-    * 通过输入固定条目:'{"backend":"abc.oldboy.org","record":{"server":"100.1.7.9","weight":"20","maxconn":"3000"}}'来将backend或者record下面的value信息从配置文件中删除
-* 恢复初始配置
-    * 通过备份的配置文件版本信息来还原操作
+* 添加用户
+* 查询用户
+* 删除用户
+* 修改用户密码
+* 修改用户权限类型
 
 ## 使用说明
 
 ### 获取代码
 
-[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day3/day3>)
+[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day4/day4>)
 
 ### 环境需求 
 
@@ -48,9 +45,9 @@ day4  # 项目主目录
 ### QuickStart
 
 ```shell
-chmod +x file_operation.py ; ./file_operation.py     
+chmod +x user_admin.py ; ./user_admin.py     
 or    
- python3 file_operation.py
+ python3 user_admin.py
 ```
 
 ## 其他
@@ -61,4 +58,4 @@ or
 * Blog:[SmartCZM](http://www.smartczm.com)
 项目的Bug和改进点，可以email的方式直接提交给我 thk.
 
-[Python Day3 Blog](<http://www.smartczm.com/python_day3.html>)
+[Python Day4 Blog](<http://www.smartczm.com/python_day4.html>)
