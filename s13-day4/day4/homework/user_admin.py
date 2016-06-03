@@ -171,7 +171,7 @@ def fetch(user):
     :param user:
     :return:
     """
-    print("\033[32;1m用户查询的相关用户或者邮箱信息如下:\033[0m")
+    print("\033[32;1m查询信息如下:\033[0m")
     with open("db", "r", encoding='utf-8') as obj_read:
         for line in obj_read:
             line_list = line.strip().split("|")
