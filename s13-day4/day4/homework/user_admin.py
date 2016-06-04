@@ -171,20 +171,27 @@ def fetch(user):
     :param user:
     :return:
     """
-    print("\033[32;1m查询信息如下:\033[0m")
-    with open("db", "r", encoding='utf-8') as obj_read:
-        for line in obj_read:
-            line_list = line.strip().split("|")
-            if USER_TYPE['is_admin'] and user == line_list[0] or user in line_list[2]:
-                name = line_list[0]
-                mail = line_list[2]
-                phone = line_list[3]
-                utype = line_list[4]
-                if utype == "1":
-                    priv = "Admin"
+    try:
+        with open("db", "r", encoding='utf-8') as obj_read:
+            for line in obj_read:
+                line_list = line.strip().split("|")
+                if USER_TYPE['is_admin'] and user == line_list[0] or user in line_list[2]:
+                    name = line_list[0]
+                    mail = line_list[2]
+                    phone = line_list[3]
+                    utype = line_list[4]
+                    if utype == "1":
+                        priv = "Admin"
+                    else:
+                        priv = "User"
+                    print("\033[32;1m查询信息如下:\033[0m")
+                    print(u"\033[34;1m用户名: {0:s}  Password: ****** Email: {1:s}  Phone: {2:s}  账号类型: {3:s}\033[0m".format(name, mail, phone, priv))
                 else:
-                    priv = "User"
-                print(u"\033[34;1m用户名: {0:s}  Password: ****** Email: {1:s}  Phone: {2:s}  账号类型: {3:s}\033[0m".format(name, mail, phone, priv))
+                    sys.exit(4)
+    except:
+        return False
+    else:
+        return True
 
 
 @outer
@@ -198,7 +205,9 @@ def fetch_confirm():
     re_user = re.match(r"[0-9a-z]+", "%s" % fetch_info)
     re_email = re.match(r"[0-9a-z]+@[0-9a-z]+\.[a-z]+", "%s" % fetch_info)
     if re_user or re_email and LOGIN_INFO['is_login'] == True:
-        fetch(fetch_info)
+        info = fetch(fetch_info)
+        if not info:
+            print("\033[31;1m查询失败,没有找到相关用户信息.\033[0m")
 
 
 def remove(user):
@@ -228,10 +237,12 @@ def remove_confirm():
     remove_user = input("\033[32;1m请输入你要删除的用户: \033[0m")
     re_user = re.match(r"[a-z]+", "%s" % remove_user)
     if re_user and LOGIN_INFO['is_login'] == True:
-        remove(remove_user)
-        print("\033[34;1m用户 %s 删除成功\033[0m" % remove_user)
-    else:
-        print("\033[31;1m输入用户名不存在\033[0m")
+        info = fetch(remove_user)
+        if info:
+            remove(remove_user)
+            print("\033[34;1m用户 %s 删除成功\033[0m" % remove_user)
+        else:
+            print("\033[31;1m用户删除失败,没有找到相关用户.\033[0m")
 
 
 def changepwd(user, passwd):
@@ -269,10 +280,14 @@ def cpasswd_confirm():
     change_passwd = getpass.getpass("\033[32;1mPlease enter the password: \033[0m")
     confirm_passwd = getpass.getpass("\033[32;1mPlease again confirm password: \033[0m")
     if change_user and LOGIN_INFO['is_login'] == True and change_passwd == confirm_passwd:
-        changepwd(change_user, change_passwd)
-        print("\033[34;1m用户 %s 密码修改成功\033[0m" % change_user)
+        info = fetch(change_user)
+        if info:
+            changepwd(change_user, change_passwd)
+            print("\033[34;1m用户 %s 密码修改成功\033[0m" % change_user)
+        else:
+            print("\033[31;1m用户密码更改失败,没有找到相关用户.\033[0m")
     else:
-        print("\033[31;1m用户密码更改失败\033[0m")
+        print("\033[31;1m两次输入的密码不一致\033[0m")
 
 
 def change_priv(user):
@@ -307,10 +322,12 @@ def priv_confirm():
     """
     priv_user = input("\033[32;1m请输入你要提权的用户: \033[0m")
     if priv_user and LOGIN_INFO['is_login'] == True:
-        change_priv(priv_user)
-        print("\033[34;1m用户 %s 提权成功\033[0m" % priv_user)
-    else:
-        print("\033[31;1m用户提权操作失败\033[0m")
+        info = fetch(priv_user)
+        if info:
+            change_priv(priv_user)
+            print("\033[34;1m用户 %s 提权成功\033[0m" % priv_user)
+        else:
+            print("\033[31;1m用户提权操作失败,没有找到相关用户.\033[0m")
 
 
 def main():
