@@ -4,11 +4,11 @@
 
 #  字符串格式化,规范输入
 username = input("Username: ")
-if username.strip() == 'alex':
+if username.strip() == 'admin':
     print("Welcome %s") % username
 
 #  --->通过,号组成一个列表
-names = "alex,jack,rain"
+names = "admin,jack,rain"
 name2 = names.split(",")
 print(name2)
 
@@ -18,7 +18,7 @@ print( "|".join(name2))
 name = "Alex Li"
 print('' in name) # 判断字符串中是否有空格
 
-name = "alex li"
+name = "admin li"
 print(name.capitalize()) # 首字母大写
 
 # name.format()  # 字符串格式化
@@ -28,7 +28,7 @@ msg2 = msg.format(name='Linux', age=333)
 print(msg2)
 
 msg2 = "hebe{0}, helm{1}"
-print(msg2.format('alex', 33))
+print(msg2.format('admin', 33))
 
 print(name[2:4])
 
@@ -45,7 +45,7 @@ if age.isdigit():
 else:
     print("Invalid data type")
 
-name = 'alex!sf'
+name = 'admin!sf'
 print(name.isalnum())  # 不能包含特殊字符
 
 print(name.endswith('df'))  # 以...结尾

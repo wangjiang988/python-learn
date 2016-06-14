@@ -1,0 +1,41 @@
+1, 作业重点
+2, 双层装饰器
+    1. 单层装饰器
+    2. 多层装饰器
+    3. 可加参数的装饰器
+3, Python模块
+    1. 自定义模块
+    2. 内置模块
+        * json,pickle 序列化和反序列化
+        * time,datetime
+        * logging
+    3. 第三方模块
+4, 字符串格式化
+    1. %分号方式
+    2. Format方式
+5, Other
+    1. 生成器
+    2. 迭代器
+    3. 递归
+6, Other
+    1. 冒泡算法
+    2. 排序
+
+http://www.cnblogs.com/wupeiqi/articles/5501365.html
+
+作业:
+1. 登录京东
+2. 信用卡用户验证
+
+bin 程序主调用接口
+ atm.py start 每行程序不超过10行
+ shopping.py
+conf 配置目录
+ user_db 配置
+ log format 文件
+ 信用卡还款日
+core 核心逻辑
+log 日志目录
+db 数据目录
+
+账户信息用json来存储

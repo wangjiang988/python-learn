@@ -25,6 +25,8 @@ def f1():
     print("F1")
     return "砍你"
 
+f1()
+
 
 @outer
 def f2():

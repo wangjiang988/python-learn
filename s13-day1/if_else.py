@@ -5,7 +5,7 @@
 # 多重if判断
 # import getpass
 '''
-user = 'alex'
+user = 'admin'
 passwd = 'alex3714'
 
 username = input("Please Input Username: ")
@@ -25,7 +25,7 @@ else:
 
 # 优化代码,减少多重判断
 
-user = 'alex'
+user = 'admin'
 passwd = 'alex3714'
 
 username = input("Please Input Username: ")

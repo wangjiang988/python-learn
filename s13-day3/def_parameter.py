@@ -140,7 +140,7 @@ print(li)
 
 * 全局变量, 对于函数体来说，自己本身创建的变量，只能用于自己本身的作用域，而不能被全局调用
 def f1():
-    name = 'alex'
+    name = 'admin'
     print(name)
 
 
@@ -150,7 +150,7 @@ def f2():
 f1()
 f2()
 
-NAME = 'alex'  # 函数体之外创建，全局变量
+NAME = 'admin'  # 函数体之外创建，全局变量
 
 
 def f1():

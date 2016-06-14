@@ -11,11 +11,11 @@
 
 import getpass
 
-# user = 'alex'
+# user = 'admin'
 # passwd = 'alex123'
 
 # 变量新方法定义：
-user, passwd = 'alex', 'alex123'
+user, passwd = 'admin', 'alex123'
 
 username = input("username: ")  # 3.0
 password = getpass.getpass("passwd: ")  # 3.0
@@ -53,7 +53,7 @@ JOB: %s
 ''' % (name, age, job)
 
 # 变量
-name = 'alex'
+name = 'admin'
 
 # 常量(命名规则，全部为大写)
 MYSQL_CONNECTION = 20

@@ -31,7 +31,7 @@ def manager():  # 后台管理
     
 
 def login(user, pwd):
-    if user == 'alex' and pwd == '123':
+    if user == 'admin' and pwd == '123':
         LOGIN_INFO['is_login'] = True
         LOGIN_INFO['current_user'] = user
         manager()

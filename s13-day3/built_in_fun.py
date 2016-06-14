@@ -128,10 +128,10 @@ with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8'
 # 修改alex到eric
 with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8') as f2:
     for line in f1:
-        new_str = line.replace("alex", "st")
+        new_str = line.replace("admin", "st")
         f2.write(new_str)
 
 with open("db1", "r", encoding='utf-8') as f1, open("db2", "w", encoding='utf-8') as f2:
     for line in f1:
-        new_str = line.replace("alex", "st")
+        new_str = line.replace("admin", "st")
         f2.write(new_str)

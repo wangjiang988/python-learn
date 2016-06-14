@@ -5,14 +5,14 @@
 # 三元运算(三目运算) if else的简写
 
 if 1 == 1:
-    name = 'alex'
+    name = 'admin'
 else:
     name = 'SB'
 print(name)
 
-# 如果1==1成立,让if前面的值name=alex,
+# 如果1==1成立,让if前面的值name=admin,
 # 否则让if前面的变量name=SB
-name = 'alex' if 1 == 1 else 'SB'
+name = 'admin' if 1 == 1 else 'SB'
 print(name)
 
 

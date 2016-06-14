@@ -1,0 +1,20 @@
+[
+    {
+        "name": "chenliang",
+        "bill": {},
+        "max_balance": 15000.0,
+        "address": "紫阳",
+        "arrearage": 0,
+        "tel": "18701115239",
+        "is_arrearage": false,
+        "mail": "chenliang@haizhi.com",
+        "cardid": "123456789",
+        "cash": 7500.0,
+        "status": "正常",
+        "error_count": 0,
+        "arrearage_sum": 0,
+        "balance": 15000.0,
+        "transaction_detail": [],
+        "password": "202cb962ac59075b964b07152d234b70"
+    }
+]
