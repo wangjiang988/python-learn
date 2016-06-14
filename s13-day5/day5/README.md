@@ -62,14 +62,6 @@ or
 [Python Day5 Blog02](<https://www.smartczm.com/python_day5_02.html>)
 
 
-#################################################
-# Created on: 2016年2月13日
-# @author: 张晓宇
-# Email: 61411916@qq.com
-# Blog: http://www.cnblogs.com/zhangxiaxuan/
-# GitHub: https://github.com/ZhangXiaoyu-Chief
-#################################################
-
 
 作业一：ATM + 购物商城程序
     1、额度 15000或自定义
