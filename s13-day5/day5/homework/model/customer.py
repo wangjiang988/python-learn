@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src import conf
 import json
-from libs import mylib
+from libs import commons
 
 
 class customer(object):
@@ -75,7 +75,7 @@ class customer(object):
 
         customer_info = {
             "address": address,
-            "password": mylib.jiami(password),
+            "password": commons.md5(password),
             "username": username,
             "name": name,
             "mail": mail,

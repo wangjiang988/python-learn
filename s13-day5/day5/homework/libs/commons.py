@@ -2,7 +2,7 @@
 # coding:utf-8
 
 
-def myljust(str1, width, fillchar=None):
+def strleft(str1, width, fillchar=None):
     """
     中英文混合左对齐
     :param str1: 欲对齐字符串
@@ -17,7 +17,7 @@ def myljust(str1, width, fillchar=None):
     return "%s%s" % (str1, fillchar * fill_char_size)
 
 
-def myrjust(str1, width, fillchar=None):
+def strright(str1, width, fillchar=None):
     """
     中英文混合右对齐
     :param str1: 欲对齐字符串
@@ -32,7 +32,7 @@ def myrjust(str1, width, fillchar=None):
     return "%s%s" % (fillchar * fill_char_size, str1)
 
 
-def mycenter(str1, width, fillchar=None):
+def strcenter(str1, width, fillchar=None):
     """
     中英文混合居中对齐
     :param str1: 欲对齐字符串
@@ -60,7 +60,7 @@ def color(str1, color_id=37):
     return "\33[%sm%s\033[0m" % (color_id, str1)
 
 
-def myfind(str1, sub, color_id=None):
+def findstr(str1, sub, color_id=None):
     """
     查找子串，如果子串存在，返回的字符串中子串将被高亮
     :param str1: 字符串
@@ -73,7 +73,7 @@ def myfind(str1, sub, color_id=None):
     return str1.replace(sub, color(sub, color_id))
 
 
-def jiami(str):
+def md5(str):
     """
     通过md5对字符串进行加密
     :param str: 要加密的字符串
@@ -85,7 +85,7 @@ def jiami(str):
     return m.hexdigest()
 
 
-def pagination(li, max_per_page, page=1):
+def paging(li, max_per_page, page=1):
     """
     列表分页
     :param li: 要分页的列表
@@ -104,7 +104,7 @@ def pagination(li, max_per_page, page=1):
         return [], max_page
 
 
-def validate_input(re_str, title, hint='', back_str='r', error_str='输入错误', is_pass=False):
+def confirm_input(re_str, title, hint='', back_str='r', error_str='输入错误', is_pass=False):
     """
     待验证的输入（通过正则表达式进行验证）如数不合法或输入不是back_str，则提示错误并循环
     :param is_pass:
@@ -133,7 +133,7 @@ def validate_input(re_str, title, hint='', back_str='r', error_str='输入错误
             input('%s，按任意键继续' % error_str)
 
 
-def mylog(log_file_name):
+def logger(log_file_name):
     import logging
     handler = logging.FileHandler(log_file_name, "a", encoding="UTF-8")
     formatter = logging.Formatter("%(asctime)s [%(levelname)s]: %(message)s", '%Y-%m-%d %H:%M:%S')

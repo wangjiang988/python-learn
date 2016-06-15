@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src import conf
 import json
-import libs.mylib as mylib
+import libs.commons as commons
 
 
 class account(object):
@@ -36,7 +36,7 @@ class account(object):
             max_balance = conf.MAX_BALANCE
         account_info = {
             "cardid": cardid,  # 卡号
-            "password": mylib.jiami(conf.DEFAULT_PASSWORD),  # 密码
+            "password": commons.md5(conf.DEFAULT_PASSWORD),  # 密码
             "name": name,  # 持卡人姓名
             "tel": tel,  # 持卡人电话
             "mail": mail,  # 持卡人邮件，可以考虑邮件发送账单
@@ -209,7 +209,7 @@ class account(object):
                     msg = '修改失败'
                     self.__accounts[i] = old_account
                     return False, msg
-                break
+            break
         else:
             msg = '用户不存在'
             return False, msg

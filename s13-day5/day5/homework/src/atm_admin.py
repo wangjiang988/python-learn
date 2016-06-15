@@ -9,12 +9,12 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from model.account import account
 from model.atm import atm
 import conf
-from libs import mylib as mylib
+from libs import commons as commons
 
 if __name__ == '__main__':
     ac = account()
     atm = atm()
-    logger = mylib.mylog(conf.ATM_LOG)
+    logger = commons.logger(conf.ATM_LOG)
 
 
     def print_welcome():
@@ -24,7 +24,7 @@ if __name__ == '__main__':
 * %s *
 * %s *
 **********************************""" % (
-            mylib.myljust('欢迎来到768银行后台系统', 30), mylib.myljust('Version: 1.0', 30), mylib.myljust('admin 您好', 30))
+            commons.strleft('欢迎来到768银行后台系统', 30), commons.strleft('Version: 1.0', 30), commons.strleft('admin 您好', 30))
         print(welcome_info)
 
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 -----------------------------------------------------
 """ % (account['cardid'], account['name'], account['address'], account['tel'], account['mail'], account['balance'],
        account['cash'], account['max_balance'], account['status'])
-        print(mylib.myfind(account_info, '用户详细信息'))
+        print(commons.findstr(account_info, '用户详细信息'))
         logger.info('atm_admin：查看账户%s详细信息' % account['cardid'])
 
 
@@ -73,30 +73,30 @@ if __name__ == '__main__':
         flag = True
         while flag:
             # 获取用户输入的账户信息，任何一个输入项，输入r取消添加用户
-            cardid = mylib.validate_input(r'^\d{9}$', '卡号: ', '输入提示: 卡号必须是9位数字，并且不能重复，输入r返回上级菜单')
+            cardid = commons.confirm_input(r'^\d{9}$', '卡号: ', '输入提示: 卡号必须是9位数字，并且不能重复，输入r返回上级菜单')
             if cardid == 'r':
                 flag = False
                 continue
             if ac.check_cardid(cardid):  # 判断卡号是否存在
                 input('卡号已经存在，请重新输入，按任意键继续')
                 continue
-            name = mylib.validate_input(r'^.{1,10}$', '账户名: ', '输入提示: 账户名不能为空，长度不能超过10个字符，输入r返回上级菜单')
+            name = commons.confirm_input(r'^.{1,10}$', '账户名: ', '输入提示: 账户名不能为空，长度不能超过10个字符，输入r返回上级菜单')
             if name == 'r':
                 flag = False
                 continue
 
-            tel = mylib.validate_input(r'^1([358]\d{9})$', '联系电话: ', '输入提示: 联系电话为手机号，长度为11位，输入r返回上级菜单')
+            tel = commons.confirm_input(r'^1([358]\d{9})$', '联系电话: ', '输入提示: 联系电话为手机号，长度为11位，输入r返回上级菜单')
             if tel == 'r':
                 flag = False
                 continue
 
-            mail = mylib.validate_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
+            mail = commons.confirm_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
                                         '输入提示: 邮箱不能为空，输入r返回上级菜单')
             if mail == 'r':
                 flag = False
                 continue
 
-            address = mylib.validate_input(r'^.+$', '住址: ', '输入提示: 住址不能为空，输入r返回上级菜单')
+            address = commons.confirm_input(r'^.+$', '住址: ', '输入提示: 住址不能为空，输入r返回上级菜单')
             if address == 'r':
                 flag = False
             # 调用ac对象的insert_account方法添加用户
@@ -151,7 +151,7 @@ if __name__ == '__main__':
         :param account: 欲修改的函数
         :return: 无
         """
-        new_max_balance = mylib.validate_input('^\d+[.]{0,1}\d+$', '请输入新的用户额度: ')  # 获取用户输入的新的可用额度
+        new_max_balance = commons.confirm_input('^\d+[.]{0,1}\d+$', '请输入新的用户额度: ')  # 获取用户输入的新的可用额度
         if new_max_balance != 'r':
             # 修改用户可用额度，并更新
             account['max_balance'] = float(new_max_balance)
@@ -218,27 +218,27 @@ if __name__ == '__main__':
             accounts = ac.get_accounts()
             if accounts:
                 # 分页，获取分页后的列表和最多可以分多少页
-                res_list, max_page = mylib.pagination(accounts, conf.MAX_PER_PAGE, page)
+                res_list, max_page = commons.paging(accounts, conf.MAX_PER_PAGE, page)
                 # 打印分页后的用户列表
-                print(mylib.mycenter('查看用户', 65))
+                print(commons.strcenter('查看用户', 65))
                 print('-' * 65)
                 print(' %s %s %s %s %s %s' % (
-                    mylib.myljust('序号', 6), mylib.myljust('卡号', 11), mylib.myljust('账户名', 12), mylib.myljust('电话', 13),
-                    mylib.myljust('状态', 6), mylib.myljust('可用额度', 8)))
+                    commons.strleft('序号', 6), commons.strleft('卡号', 11), commons.strleft('账户名', 12), commons.strleft('电话', 13),
+                    commons.strleft('状态', 6), commons.strleft('可用额度', 8)))
                 for num, account in enumerate(res_list, 1):
-                    print(' %s   %s %s %s %s %s' % (mylib.myrjust(str(num), 4), mylib.myljust(account['cardid'], 11),
-                                                    mylib.myljust(account['name'], 12),
-                                                    mylib.myljust(account['tel'], 13),
-                                                    mylib.myljust(account['status'], 6),
-                                                    mylib.myljust(str(account['max_balance']), 8)))
+                    print(' %s   %s %s %s %s %s' % (commons.strright(str(num), 4), commons.strleft(account['cardid'], 11),
+                                                    commons.strleft(account['name'], 12),
+                                                    commons.strleft(account['tel'], 13),
+                                                    commons.strleft(account['status'], 6),
+                                                    commons.strleft(str(account['max_balance']), 8)))
                 print('-' * 65)
-                print(mylib.myrjust('当前第%s页/共%s页' % (page, max_page), 65))
+                print(commons.strright('当前第%s页/共%s页' % (page, max_page), 65))
                 print()
                 chose = input('操作提示：\n 输入相应序号选择用户\n 输入n进入下一页，输入b进入上一页，输入r返回主菜单\n 请输入: ').strip()
                 if chose == 'n':
                     # 选择n下一页，页码加1
                     if page < max_page:
-                        page = page + 1
+                        page += 1
                     else:
                         input("已经是最后一页了，按任意键继续")
                 elif chose == 'b':
@@ -246,7 +246,7 @@ if __name__ == '__main__':
                     if page == 1:
                         input("已经是第1页了，按任意键继续")
                     else:
-                        page = page - 1
+                        page -= 1
                 elif chose == 'r':
                     # 选择r，退出循环返回主菜单
                     flag = False
@@ -288,7 +288,7 @@ if __name__ == '__main__':
         :return: 是否删除了账户，包括取消注销，如果取消注销账户也返回False
         """
         # 获取确认
-        chose = mylib.validate_input('^[y]$', '请确认是否注销卡号为%s的用户(y/n): ' % account['cardid'], back_str='n')
+        chose = commons.confirm_input('^[y]$', '请确认是否注销卡号为%s的用户(y/n): ' % account['cardid'], back_str='n')
         if chose == 'y':
             # 调用ac对象的del_account方法删除账户
             res, msg = ac.del_account(account['cardid'])

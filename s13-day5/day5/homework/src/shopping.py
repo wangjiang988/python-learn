@@ -10,13 +10,13 @@ from model.customer import customer
 from model.shopping import shopping
 from model.goods import goods
 from model.atm import atm
-from libs import mylib
+from libs import commons
 from src import conf
 
 if __name__ == '__main__':
     shopping = shopping()
     goo = goods()
-    logger = mylib.mylog(conf.SHOPPING_LOG)
+    logger = commons.logger(conf.SHOPPING_LOG)
     cu = customer()
     atm = atm()
 
@@ -45,14 +45,13 @@ if __name__ == '__main__':
                 "cart": []
             }
         # print(account)
-        welcome_info = """
+        welcome_info = u"""
 **********************************
-* %s *
-* %s *
-* %s *
-**********************************""" % (
-            mylib.myljust('欢迎来到768购物中心', 30), mylib.myljust('Version: 2.0', 30),
-            mylib.myljust('%s 您好' % customer['name'], 30))
+* {0:s} *
+* {1:s} *
+* {2:s} *
+**********************************""".format(commons.strleft('欢迎来到768购物中心', 30), commons.strleft('Version: 1.0', 30),
+                                             commons.strleft('%s 您好' % customer['name'], 30))
         print(welcome_info)
 
 
@@ -67,7 +66,7 @@ if __name__ == '__main__':
             flag = True
             while flag:
                 # 获取用户输入的基本信息，任何一个环节输入r将取消注册，返回主菜单
-                username = mylib.validate_input(r'^\w{1,15}$', '用户名:', '输入提示: 用户名必须是数字和字母的组合，长度不超过15个字符，输入r返回上级菜单')
+                username = commons.confirm_input(r'^\w{1,15}$', '用户名:', '输入提示: 用户名必须是数字和字母的组合，长度不超过15个字符，输入r返回上级菜单')
                 if username == 'r':
                     flag = False
                     continue
@@ -76,11 +75,11 @@ if __name__ == '__main__':
                     continue
 
                 while True:
-                    password = mylib.validate_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
+                    password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
                     if password == 'r':
                         flag = False
                         break
-                    confirm_password = mylib.validate_input(r'^.{6,15}$', '确认密码: ', '输入提示: 确认密码必须与密码一致，输入r返回上级菜单',
+                    confirm_password = commons.confirm_input(r'^.{6,15}$', '确认密码: ', '输入提示: 确认密码必须与密码一致，输入r返回上级菜单',
                                                             is_pass=True)
                     if password == 'r':
                         flag = False
@@ -92,23 +91,23 @@ if __name__ == '__main__':
                 if not flag:
                     continue
 
-                name = mylib.validate_input(r'^.{1,10}$', '姓名: ', '输入提示: 姓名不能为空，长度不能超过10个字符，输入r返回上级菜单')
+                name = commons.confirm_input(r'^.{1,10}$', '姓名: ', '输入提示: 姓名不能为空，长度不能超过10个字符，输入r返回上级菜单')
                 if name == 'r':
                     flag = False
                     continue
 
-                tel = mylib.validate_input(r'^1([358]\d{9})$', '联系电话: ', '输入提示: 联系电话为手机号，长度为11位，输入r返回上级菜单')
+                tel = commons.confirm_input(r'^1([358]\d{9})$', '联系电话: ', '输入提示: 联系电话为手机号，长度为11位，输入r返回上级菜单')
                 if tel == 'r':
                     flag = False
                     continue
 
-                mail = mylib.validate_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
+                mail = commons.confirm_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
                                             '输入提示: 邮箱不能为空，输入r返回上级菜单')
                 if mail == 'r':
                     flag = False
                     continue
 
-                address = mylib.validate_input(r'^.+$', '住址: ', '输入提示: 住址不能为空，输入r返回上级菜单')
+                address = commons.confirm_input(r'^.+$', '住址: ', '输入提示: 住址不能为空，输入r返回上级菜单')
                 if address == 'r':
                     flag = False
                 # 调用cu对象的insert_customer方法创建用户
@@ -132,12 +131,12 @@ if __name__ == '__main__':
             flag = True
             while flag:
                 # 获取用户名
-                username = mylib.validate_input(r'^\w{1,15}$', '用户名(输入r返回主菜单): ')
+                username = commons.confirm_input(r'^\w{1,15}$', '用户名(输入r返回主菜单): ')
                 if username == 'r':
                     flag = False
                     continue
                 # 获取密码
-                # password = mylib.validate_input(r'^.{6,15}$', '密码: ', is_pass = True)
+                # password = commons.confirm_input(r'^.{6,15}$', '密码: ', is_pass = True)
                 password = getpass.getpass('密码: ').strip()
                 # print(password)
                 # 调用shopping对象的login方法，验证用户名和密码
@@ -204,19 +203,19 @@ if __name__ == '__main__':
             if all_goods:
                 # 如果商品列表不为空显示商品信息
                 # 分页商品列表，获取分页后的商品列表及最多可以分多少页
-                res_list, max_page = mylib.pagination(all_goods, conf.MAX_PER_PAGE, page)
+                res_list, max_page = commons.paging(all_goods, conf.MAX_PER_PAGE, page)
                 # 输出分页后的商品列表
                 print("商品列表")
                 print('-' * 80)
                 print(' %s %s %s %s %s' % (
-                    mylib.myljust('序号', 6), mylib.myljust('编号', 7), mylib.myljust('商品名', 45), mylib.myljust('价格', 10),
-                    mylib.myljust('分类', 8)))
+                    commons.strleft('序号', 6), commons.strleft('编号', 7), commons.strleft('商品名', 45), commons.strleft('价格', 10),
+                    commons.strleft('分类', 8)))
                 for num, goods in enumerate(res_list, 1):
                     print(' %s   %s %s %s %s' % (
-                        mylib.myrjust(str(num), 4), mylib.myljust(goods['id'], 7), mylib.myljust(goods['name'], 45),
-                        mylib.myljust(str(goods['price']), 10), mylib.myljust(goods['class'], 6)))
+                        commons.strright(str(num), 4), commons.strleft(goods['id'], 7), commons.strleft(goods['name'], 45),
+                        commons.strleft(str(goods['price']), 10), commons.strleft(goods['class'], 6)))
                 print('-' * 80)
-                print(mylib.myrjust('当前第%s页/共%s页' % (page, max_page), 80))
+                print(commons.strright('当前第%s页/共%s页' % (page, max_page), 80))
                 print()
                 # 获取用户输入的操作选项，输入序号表示选定商品
                 chose = input('操作提示：\n 输入相应序号选择商品\n 输入n进入下一页，输入b进入上一页，输入r返回上一级菜单\n 请输入: ').strip()
@@ -273,15 +272,15 @@ if __name__ == '__main__':
         """
         total = 0  # 初始化购物总金额
         print('%s %s    %s%s    %s%s\n%s' % (
-            mylib.myljust('序号', 8), mylib.myljust('商品编号', 8), mylib.myljust('商品名称', 50), mylib.myrjust('单价', 8),
-            mylib.myrjust('个数', 8), mylib.myrjust('小计', 8), '-' * 100))
+            commons.strleft('序号', 8), commons.strleft('商品编号', 8), commons.strleft('商品名称', 50), commons.strright('单价', 8),
+            commons.strright('个数', 8), commons.strright('小计', 8), '-' * 100))
         cart_list = shopping.get_cart()  # 获取购物车列表
         if len(cart_list) != 0:  # 判断购物车是否为空
             # 不为空
             for cart_item in enumerate(cart_list, 1):  # 遍历购物车
                 total = total + cart_item[1]['subtotal']  # 购物总金额累加
                 print('%s %s    %s%s    %s%s' % (
-                    str(cart_item[0]).center(8), cart_item[1]['id'].center(8), mylib.myljust(cart_item[1]['name'], 50),
+                    str(cart_item[0]).center(8), cart_item[1]['id'].center(8), commons.strleft(cart_item[1]['name'], 50),
                     str(cart_item[1]['price']).rjust(8), str(cart_item[1]['num']).rjust(8),
                     str(cart_item[1]['subtotal']).rjust(9)))
         else:
@@ -304,7 +303,7 @@ if __name__ == '__main__':
                 # 选择e，清空购物车
                 if total != 0:  # 判断购物车是否为空
                     # 购物车不为空
-                    confirm = mylib.validate_input('^[y]$', '请确认是否清空购物车(y/n): ', back_str='n')  # 获取用户确认
+                    confirm = commons.confirm_input('^[y]$', '请确认是否清空购物车(y/n): ', back_str='n')  # 获取用户确认
                     if confirm == 'y':  # 判断用户确认
                         # 确认清空
                         shopping.empty_cart()  # 调用goods对象的del_all_cart方法清空购物车
@@ -337,13 +336,13 @@ if __name__ == '__main__':
                 # 选择r退出购物车循环，返回上一级菜单
                 break
             elif chose == 'd':
-                del_chose = mylib.validate_input('^\d$', '请输入编号(输入r返回): ')
+                del_chose = commons.confirm_input('^\d$', '请输入编号(输入r返回): ')
                 if del_chose == 'r':
                     continue
                 else:
                     cart_list = shopping.get_cart()
                     gname = cart_list[int(del_chose) - 1]['name']
-                    confirm = mylib.validate_input('^[y]$', '请确认删除1个%s(y/n): ' % gname, back_str='n')
+                    confirm = commons.confirm_input('^[y]$', '请确认删除1个%s(y/n): ' % gname, back_str='n')
                     if confirm == 'y':
                         gid = cart_list[int(del_chose) - 1]['id']
                         res, msg = shopping.del_goods_from_cart(gid)
@@ -369,21 +368,21 @@ if __name__ == '__main__':
                 flag = False
                 continue
             # 获取用户输入的旧密码
-            old_password = mylib.validate_input(r'^.{6,15}$', '原密码: ', '输入提示: 输入r返回上级菜单', is_pass=True)
+            old_password = commons.confirm_input(r'^.{6,15}$', '原密码: ', '输入提示: 输入r返回上级菜单', is_pass=True)
             # 判断用户输入的是否是r，如果是r退出循环
             if old_password == 'r':
                 flag = False
                 continue
             # 获取用户输入的新密码及确认密码
-            new_password = mylib.validate_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
-            confirm_password = mylib.validate_input(r'^.{6,15}$', '确认密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
+            new_password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
+            confirm_password = commons.confirm_input(r'^.{6,15}$', '确认密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
                                                     is_pass=True)
-            old_password = mylib.jiami(old_password)
+            old_password = commons.md5(old_password)
             # 判断旧密码是否正确
             if old_password == customer['password']:
                 # 判断新密码是否和确认密码一致
                 if new_password == confirm_password:
-                    new_password = mylib.jiami(new_password)
+                    new_password = commons.md5(new_password)
                     # 判断新密码是否和旧密码不一样
                     if new_password != old_password:
                         # 修改密码

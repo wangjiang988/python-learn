@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from model.customer import customer
-from libs import mylib
+from libs import commons
 
 
 class shopping(object):
@@ -17,21 +17,21 @@ class shopping(object):
         self.__tmp_cart = []
 
     def get_crurrent_customer(self):
-        '''
+        """
         获取当前用户
         :return:
-        '''
+        """
         return self.__current_customer
 
     def login(self, username, password):
-        '''
+        """
         登录方法
         :param username: 用户名
         :param password: 密码
         :return: 成功返回True否则返回False
-        '''
+        """
         res, msg = self.__customer.find_by_username(username)
-        if res and res['password'] == mylib.jiami(password):
+        if res and res['password'] == commons.md5(password):
             self.__current_customer = res
             if self.__tmp_cart:
                 for item in self.__tmp_cart:
@@ -43,18 +43,18 @@ class shopping(object):
             return False
 
     def logout(self):
-        '''
+        """
         注销方法
         :return: 无
-        '''
+        """
         self.__current_customer = []
 
     def add_to_shopping_cart(self, goods, num):
-        '''
+        """
         添加购物车方法
         :param gid: 商品id
         :return: 无
-        '''
+        """
         temp_dict = {}
         # 判断用户是否登录，如果登录添加到用户的购物车，如果没有登录添加到临时购物车
         if self.__current_customer:
@@ -80,10 +80,10 @@ class shopping(object):
             self.__customer.update_customer(self.__current_customer)
 
     def get_cart(self):
-        '''
+        """
         获取购物车列表方法
         :return: 购物车列表
-        '''
+        """
         # 判断用户是否登录，如果用户登录，返回用户的购物车，否则放回临时购物车
         if self.__current_customer:
             return self.__current_customer['cart']
@@ -91,10 +91,10 @@ class shopping(object):
             return self.__tmp_cart
 
     def empty_cart(self):
-        '''
+        """
         清空购物车方法
         :return: 无
-        '''
+        """
         # 判断用户是否登录，如果登录清空用户的购物车并更新用户信息，如果没登录，清空临时购物车
         if self.__current_customer:
             self.__current_customer['cart'] = []
@@ -103,11 +103,11 @@ class shopping(object):
             self.__tmp_cart = []
 
     def del_goods_from_cart(self, gid):
-        '''
+        """
         删除购物车商品方法
         :param gid: 要删除的商品id
         :return: 成功返回True，否则返回False
-        '''
+        """
         if self.__current_customer:
             cart = self.__current_customer['cart']
         else:

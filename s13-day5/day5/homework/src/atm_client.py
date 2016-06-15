@@ -7,12 +7,12 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from model.account import account
 from model.atm import atm
 import conf
-import libs.mylib as mylib
+import libs.commons as commons
 
 if __name__ == '__main__':
     ac = account()
     atm = atm()
-    logger = mylib.mylog(conf.ATM_LOG)
+    logger = commons.logger(conf.ATM_LOG)
 
 
     def print_menu(menu_list):
@@ -33,16 +33,15 @@ if __name__ == '__main__':
         :return: 无
         """
         account = atm.get_crurrent()  # 获取当前用户所有信息
-        welcome_info = """
+        welcome_info = u"""
 **********************************
-* %s *
-* %s *
-* %s *
-* %s *
-**********************************""" % (
-            mylib.myljust('欢迎来到768银行', 30), mylib.myljust('Version: 1.0', 30),
-            mylib.myljust('%s 您好' % account['name'], 30),
-            mylib.myljust('当前余额: %s' % account['balance'], 30))
+* {0:s} *
+* {1:s} *
+* {2:s} *
+* {3:s} *
+**********************************""".format(commons.strleft('欢迎来到768银行', 30), commons.strleft('Version: 1.0', 30),
+                                             commons.strleft('%s 您好' % account['name'], 30),
+                                             commons.strleft('当前余额: %s' % account['balance'], 30))
         print(welcome_info)
 
 
@@ -52,22 +51,22 @@ if __name__ == '__main__':
         :return: 无
         """
         account = atm.get_crurrent()  # 获取当前用户所有信息
-        account_info = """
+        account_info = u"""
 用户详细信息
 -----------------------------------------------------
-     卡号: %s
-     户名: %s
-     地址: %s
-     电话: %s
-     邮箱: %s
- 可用余额: %s
- 提现余额: %s
- 可用额度: %s
-     状态: %s
+     卡号: {0:s}
+     户名: {1:s}
+     地址: {2:s}
+     电话: {3:s}
+     邮箱: {4:s}
+ 可用余额: {5:s}
+ 提现余额: {6:s}
+ 可用额度: {7:s}
+     状态: {8:s}
 -----------------------------------------------------
-""" % (account['cardid'], account['name'], account['address'], account['tel'], account['mail'], account['balance'],
-       account['cash'], account['max_balance'], account['status'])
-        print(mylib.myfind(account_info, '用户详细信息'))
+""".format(account['cardid'], account['name'], account['address'], account['tel'], account['mail'], account['balance'],
+           account['cash'], account['max_balance'], account['status'])
+        print(commons.findstr(account_info, '用户详细信息'))
         input('按任意键继续')
         logger.info('atm_main：%s查看详细信息' % account['cardid'])
 
@@ -90,11 +89,11 @@ if __name__ == '__main__':
 ----------------------------------------------------------------------------""" % (
                 time.strftime("%Y-%m-%d", time.localtime(account['bill']['bill_date'])),
                 time.strftime("%Y-%m-%d", time.localtime(account['bill']['payment_date'])),
-                mylib.myljust(str(account['bill']['new_balance']), 10),
-                mylib.myljust(str(account['bill']['balance_bf']), 12),
-                mylib.myljust(str(account['bill']['payment']), 12),
-                mylib.myljust(str(account['bill']['new_charges']), 12),
-                mylib.myljust(str(account['bill']['interest']), 8))
+                commons.strleft(str(account['bill']['new_balance']), 10),
+                commons.strleft(str(account['bill']['balance_bf']), 12),
+                commons.strleft(str(account['bill']['payment']), 12),
+                commons.strleft(str(account['bill']['new_charges']), 12),
+                commons.strleft(str(account['bill']['interest']), 8))
             print(bill_info)
         else:
             # 没有账单显示无
@@ -109,7 +108,7 @@ if __name__ == '__main__':
         :return: 无
         """
         # 获取用户输入的还款金额，并判判断是否合法
-        amount = mylib.validate_input(r'^\d+[.]{0,1}\d+$', '请输入还款金额: ', '操作提示：输入r返回主菜单')
+        amount = commons.confirm_input(r'^\d+[.]{0,1}\d+$', '请输入还款金额: ', '操作提示：输入r返回主菜单')
         if amount != 'r':  # 判断用户输入的是否是r
             # 如果不是说明输入的金额
             # 调用atm的repayment方法进行还款
@@ -126,7 +125,7 @@ if __name__ == '__main__':
         flag = True
         while flag:
             # 获取转账的另一方的账号
-            cardid_b = mylib.validate_input(r'^\d{9}$', '请输入对方卡号: ', '输入提示: 卡号是9位数字，输入r返回上级菜单')
+            cardid_b = commons.confirm_input(r'^\d{9}$', '请输入对方卡号: ', '输入提示: 卡号是9位数字，输入r返回上级菜单')
             # 判断输入的是否为r
             if cardid_b == 'r':
                 # 输入的如果是r退出循环
@@ -143,7 +142,7 @@ if __name__ == '__main__':
             # 判断输入的账户是否存在
             if account_b:
                 # 获取输入的转账金额
-                amount = mylib.validate_input(r'^\d+[.]{0,1}\d+$', '请输入转账金额: ', '输入提示：\n  金额不能大于余额')
+                amount = commons.confirm_input(r'^\d+[.]{0,1}\d+$', '请输入转账金额: ', '输入提示：\n  金额不能大于余额')
                 # 调用atm的transfer_accounts方法转账
                 res, msg = atm.transfer_accounts(account_b, float(amount))
                 logger.info('atm_main：%s转账%s：%s，%s' % (atm.get_crurrent()['cardid'], cardid_b, amount, msg))
@@ -161,8 +160,8 @@ if __name__ == '__main__':
         flag = True
         while flag:
             # 获取提现金额
-            cash = mylib.validate_input(r'^\d+[.]{0,1}\d+$', '请输入提现金额: ',
-                                        '输入提示：\n  取现金额必须是100的整数倍\n  金额不能大于余额\n  输入r返回主菜单')
+            cash = commons.confirm_input(r'^\d+[.]{0,1}\d+$', '请输入提现金额: ',
+                                         '输入提示：\n  取现金额必须是100的整数倍\n  金额不能大于余额\n  输入r返回主菜单')
             # 如果输入的不是r
             if cash != 'r':
                 # 判断输入的金额是否是100的整数倍
@@ -189,26 +188,27 @@ if __name__ == '__main__':
         flag = True
         logger.info('atm_main：%s查看消费流水' % (account['cardid']))
         while flag:
-            # 调用mylib的pagination函数分页，或的分页后的列表和最多可以分多少页
-            res_list, max_page = mylib.pagination(account['transaction_detail'], conf.MAX_PER_PAGE, page)
+            # 调用commons的paging函数分页，或的分页后的列表和最多可以分多少页
+            res_list, max_page = commons.paging(account['transaction_detail'], conf.MAX_PER_PAGE, page)
             # 打印分页后的消费流水
-            print(mylib.mycenter('消费流水', 65))
+            print(commons.strcenter('消费流水', 65))
             print('-' * 65)
             print(' %s %s %s %s' % (
-                mylib.myljust('序号', 6), mylib.myljust('时间', 25), mylib.myljust('项目', 20), mylib.myljust('金额', 20)))
+                commons.strleft('序号', 6), commons.strleft('时间', 25), commons.strleft('项目', 20),
+                commons.strleft('金额', 20)))
             for num, item in enumerate(res_list, 1):
-                print(' %s   %s %s %s' % (mylib.myrjust(str(num), 4), mylib.myljust(
+                print(' %s   %s %s %s' % (commons.strright(str(num), 4), commons.strleft(
                     time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(item['date'])), 25),
-                                          mylib.myljust(item['description'], 20),
-                                          mylib.myljust(str(item['amount']), 20)))
+                                          commons.strleft(item['description'], 20),
+                                          commons.strleft(str(item['amount']), 20)))
             print('-' * 65)
-            print(mylib.myrjust('当前第%s页/共%s页' % (page, max_page), 65))
+            print(commons.strright('当前第%s页/共%s页' % (page, max_page), 65))
             # 获取用户的操作输入
             chose = input('操作提示：\n 输入n进入下一页，输入b进入上一页，输入r返回上一级菜单\n 请输入: ').strip()
             if chose == 'n':
                 # 选择n下一页，页码加1
                 if page < max_page:
-                    page = page + 1
+                    page += 1
                 else:
                     input("已经是最后一页了，按任意键继续")
             elif chose == 'b':
@@ -216,7 +216,7 @@ if __name__ == '__main__':
                 if page == 1:
                     input("已经是第1页了，按任意键继续")
                 else:
-                    page = page - 1
+                    page -= 1
             elif chose == 'r':
                 # 选择r，退出循环返回主菜单
                 flag = False
@@ -233,21 +233,21 @@ if __name__ == '__main__':
         while flag:
             account = atm.get_crurrent()
             # 获取用户输入的旧密码
-            old_password = mylib.validate_input(r'^.{6,15}$', '原密码: ', '输入提示: 输入r返回上级菜单', is_pass=True)
+            old_password = commons.confirm_input(r'^.{6,15}$', '原密码: ', '输入提示: 输入r返回上级菜单', is_pass=True)
             # 判断用户输入的是否是r，如果是r退出循环
             if old_password == 'r':
                 flag = False
                 continue
             # 获取用户输入的新密码及确认密码
-            new_password = mylib.validate_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
-            confirm_password = mylib.validate_input(r'^.{6,15}$', '确认密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
-                                                    is_pass=True)
-            old_password = mylib.jiami(old_password)
+            new_password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
+            confirm_password = commons.confirm_input(r'^.{6,15}$', '确认密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
+                                                     is_pass=True)
+            old_password = commons.md5(old_password)
             # 判断旧密码是否正确
             if old_password == account['password']:
                 # 判断新密码是否和确认密码一致
                 if new_password == confirm_password:
-                    new_password = mylib.jiami(new_password)
+                    new_password = commons.md5(new_password)
                     # 判断新密码是否和旧密码不一样
                     if new_password != old_password:
                         # 修改密码

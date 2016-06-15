@@ -8,7 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src import conf
 import time
-from libs import mylib
+from libs import commons
 from model.account import account
 
 
@@ -30,7 +30,7 @@ class atm(object):
             if self.__current_account:  # 判断是否已经登录
                 return funce(self, *args, **kwargs)
             while True:  # 如果没有登录执行循环
-                cardid = mylib.validate_input(r'^\d{9}$', '卡号（输入quit退出认证）: ', back_str='quit')
+                cardid = commons.confirm_input(r'^\d{9}$', '卡号（输入quit退出认证）: ', back_str='quit')
                 if cardid == 'quit':
                     msg = '认证失败'
                     break
@@ -42,7 +42,7 @@ class atm(object):
                 if res.get('status') != '正常':
                     input('您的账户已经%s，请联系银行客服：95588' % res.get('status'))
                     continue
-                if mylib.jiami(password) == res.get('password'):
+                if commons.md5(password) == res.get('password'):
                     input('认证成功，按任意键继续')
                     self.__current_account = res
                     return funce(self, *args, **kwargs)
@@ -77,7 +77,7 @@ class atm(object):
                 if username != conf.ADMIN_USER:
                     input('用户名或密码错误，按任意键继续')
                     continue
-                if mylib.jiami(password) == conf.ADMIN_PASSWORD:
+                if commons.md5(password) == conf.ADMIN_PASSWORD:
                     input('认证成功，按任意键继续')
                     self.__admin_login = True
                     return funce(self, *args, **kwargs)
