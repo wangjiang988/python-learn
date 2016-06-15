@@ -18,13 +18,13 @@ if __name__ == '__main__':
 
 
     def print_welcome():
-        welcome_info = """
+        welcome_info = u"""
 **********************************
-* %s *
-* %s *
-* %s *
-**********************************""" % (
-            commons.strleft('欢迎来到768银行后台系统', 30), commons.strleft('Version: 1.0', 30), commons.strleft('admin 您好', 30))
+* {0:s} *
+* {1:s} *
+* {2:s} *
+**********************************""".format(commons.strleft('欢迎来到768银行后台系统', 30), commons.strleft('Version: 1.0', 30),
+                                             commons.strleft('admin 您好', 30))
         print(welcome_info)
 
 
@@ -46,21 +46,21 @@ if __name__ == '__main__':
         :param account: 账户对象
         :return: 无
         """
-        account_info = """
+        account_info = u"""
 用户详细信息
 -----------------------------------------------------
-     卡号: %s
-     户名: %s
-     地址: %s
-     电话: %s
-     邮箱: %s
- 可用余额: %s
- 提现余额: %s
- 可用额度: %s
-     状态: %s
+     卡号: {0:s}
+     户名: {1:s}
+     地址: {2:s}
+     电话: {3:s}
+     邮箱: {4:s}
+ 可用余额: {5:s}
+ 提现余额: {6:s}
+ 可用额度: {7:s}
+     状态: {8:s}
 -----------------------------------------------------
-""" % (account['cardid'], account['name'], account['address'], account['tel'], account['mail'], account['balance'],
-       account['cash'], account['max_balance'], account['status'])
+""".format(account['cardid'], account['name'], account['address'], account['tel'], account['mail'], account['balance'],
+           account['cash'], account['max_balance'], account['status'])
         print(commons.findstr(account_info, '用户详细信息'))
         logger.info('atm_admin：查看账户%s详细信息' % account['cardid'])
 
@@ -91,7 +91,7 @@ if __name__ == '__main__':
                 continue
 
             mail = commons.confirm_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
-                                        '输入提示: 邮箱不能为空，输入r返回上级菜单')
+                                         '输入提示: 邮箱不能为空，输入r返回上级菜单')
             if mail == 'r':
                 flag = False
                 continue
@@ -223,14 +223,16 @@ if __name__ == '__main__':
                 print(commons.strcenter('查看用户', 65))
                 print('-' * 65)
                 print(' %s %s %s %s %s %s' % (
-                    commons.strleft('序号', 6), commons.strleft('卡号', 11), commons.strleft('账户名', 12), commons.strleft('电话', 13),
+                    commons.strleft('序号', 6), commons.strleft('卡号', 11), commons.strleft('账户名', 12),
+                    commons.strleft('电话', 13),
                     commons.strleft('状态', 6), commons.strleft('可用额度', 8)))
                 for num, account in enumerate(res_list, 1):
-                    print(' %s   %s %s %s %s %s' % (commons.strright(str(num), 4), commons.strleft(account['cardid'], 11),
-                                                    commons.strleft(account['name'], 12),
-                                                    commons.strleft(account['tel'], 13),
-                                                    commons.strleft(account['status'], 6),
-                                                    commons.strleft(str(account['max_balance']), 8)))
+                    print(
+                        ' %s   %s %s %s %s %s' % (commons.strright(str(num), 4), commons.strleft(account['cardid'], 11),
+                                                  commons.strleft(account['name'], 12),
+                                                  commons.strleft(account['tel'], 13),
+                                                  commons.strleft(account['status'], 6),
+                                                  commons.strleft(str(account['max_balance']), 8)))
                 print('-' * 65)
                 print(commons.strright('当前第%s页/共%s页' % (page, max_page), 65))
                 print()

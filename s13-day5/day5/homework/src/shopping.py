@@ -75,12 +75,13 @@ if __name__ == '__main__':
                     continue
 
                 while True:
-                    password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
+                    password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
+                                                     is_pass=True)
                     if password == 'r':
                         flag = False
                         break
                     confirm_password = commons.confirm_input(r'^.{6,15}$', '确认密码: ', '输入提示: 确认密码必须与密码一致，输入r返回上级菜单',
-                                                            is_pass=True)
+                                                             is_pass=True)
                     if password == 'r':
                         flag = False
                         break
@@ -102,7 +103,7 @@ if __name__ == '__main__':
                     continue
 
                 mail = commons.confirm_input(r'^[0-9.a-z]{0,26}@[0-9.a-z]{0,20}.[0-9a-z]{0,8}$', '邮箱: ',
-                                            '输入提示: 邮箱不能为空，输入r返回上级菜单')
+                                             '输入提示: 邮箱不能为空，输入r返回上级菜单')
                 if mail == 'r':
                     flag = False
                     continue
@@ -206,15 +207,17 @@ if __name__ == '__main__':
                 res_list, max_page = commons.paging(all_goods, conf.MAX_PER_PAGE, page)
                 # 输出分页后的商品列表
                 print("商品列表")
-                print('-' * 80)
+                print('-' * 120)
                 print(' %s %s %s %s %s' % (
-                    commons.strleft('序号', 6), commons.strleft('编号', 7), commons.strleft('商品名', 45), commons.strleft('价格', 10),
+                    commons.strleft('序号', 6), commons.strleft('编号', 7), commons.strleft('商品名', 80),
+                    commons.strleft('价格', 10),
                     commons.strleft('分类', 8)))
                 for num, goods in enumerate(res_list, 1):
                     print(' %s   %s %s %s %s' % (
-                        commons.strright(str(num), 4), commons.strleft(goods['id'], 7), commons.strleft(goods['name'], 45),
-                        commons.strleft(str(goods['price']), 10), commons.strleft(goods['class'], 6)))
-                print('-' * 80)
+                        commons.strright(str(num), 4), commons.strleft(goods['id'], 7),
+                        commons.strleft(goods['name'], 80),
+                        commons.strleft(str(goods['price']), 10), commons.strleft(goods['class'], 8)))
+                print('-' * 120)
                 print(commons.strright('当前第%s页/共%s页' % (page, max_page), 80))
                 print()
                 # 获取用户输入的操作选项，输入序号表示选定商品
@@ -272,7 +275,8 @@ if __name__ == '__main__':
         """
         total = 0  # 初始化购物总金额
         print('%s %s    %s%s    %s%s\n%s' % (
-            commons.strleft('序号', 8), commons.strleft('商品编号', 8), commons.strleft('商品名称', 50), commons.strright('单价', 8),
+            commons.strleft('序号', 8), commons.strleft('商品编号', 8), commons.strleft('商品名称', 100),
+            commons.strright('单价', 8),
             commons.strright('个数', 8), commons.strright('小计', 8), '-' * 100))
         cart_list = shopping.get_cart()  # 获取购物车列表
         if len(cart_list) != 0:  # 判断购物车是否为空
@@ -280,7 +284,8 @@ if __name__ == '__main__':
             for cart_item in enumerate(cart_list, 1):  # 遍历购物车
                 total = total + cart_item[1]['subtotal']  # 购物总金额累加
                 print('%s %s    %s%s    %s%s' % (
-                    str(cart_item[0]).center(8), cart_item[1]['id'].center(8), commons.strleft(cart_item[1]['name'], 50),
+                    str(cart_item[0]).center(8), cart_item[1]['id'].center(8),
+                    commons.strleft(cart_item[1]['name'], 50),
                     str(cart_item[1]['price']).rjust(8), str(cart_item[1]['num']).rjust(8),
                     str(cart_item[1]['subtotal']).rjust(9)))
         else:
@@ -376,7 +381,7 @@ if __name__ == '__main__':
             # 获取用户输入的新密码及确认密码
             new_password = commons.confirm_input(r'^.{6,15}$', '密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单', is_pass=True)
             confirm_password = commons.confirm_input(r'^.{6,15}$', '确认密码: ', '输入提示: 密码长度介于6~15个字符，输入r返回上级菜单',
-                                                    is_pass=True)
+                                                     is_pass=True)
             old_password = commons.md5(old_password)
             # 判断旧密码是否正确
             if old_password == customer['password']:

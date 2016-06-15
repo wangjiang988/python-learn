@@ -189,9 +189,7 @@ class atm(object):
                 if self.__current_account['arrearage'] > amount:
                     self.__current_account['arrearage'] -= amount
                 else:
-                    # fall = amount - self.__current_account['arrearage']
                     self.__current_account['arrearage'] = 0
-                    # self.__current_account['balance'] += fall
 
             # 生成还款交易记录
             transaction_detail = {
