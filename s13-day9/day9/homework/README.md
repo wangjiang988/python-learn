@@ -30,7 +30,7 @@
 
 ### 获取代码
 
-[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day5/day5>)
+[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day9/day9>)
 
 ### 环境需求 
 
@@ -39,101 +39,78 @@
 ### 目录介绍
 
 ```txt
-day9
-├── README.md
-└── homework
-    ├── ftpclient
+day9  # 顶级目录
+└── homework  # 主目录
+    ├── README.md  # readme文件
+    ├── ftpclient  # ftp客户端主目录
     │   ├── bin
-    │   │   └── ftp_client.py
+    │   │   └── ftp_client.py  # ftp客户端运行文件
     │   ├── conf
-    │   │   └── conf.py
+    │   │   └── conf.py  # 配置文件
     │   ├── core
-    │   │   ├── client.py
-    │   │   └── users.py
+    │   │   ├── client.py  # 客户端核心文件
+    │   │   └── users.py  # 用户相关文件
     │   └── lib
-    │       ├── commons.py
-    │       └── progressbar.py
-    ├── ftpserver
-    │   ├── bin
-    │   │   └── ftp_server.py
-    │   ├── conf
-    │   │   └── conf.py
-    │   ├── core
-    │   │   ├── server.py
-    │   │   └── users.py
-    │   ├── database
-    │   │   └── userlist
-    │   ├── home
-    │   │   ├── chenliang
-    │   │   └── guest
-    │   │       ├── id_rsa.key
-    │   │       └── test
-    │   ├── lib
-    │   │   ├── commons.py
-    │   │   └── progressbar.py
-    │   └── logs
-    │       └── ftp_server.log
-    └── readme.txt
+    │       ├── commons.py  # 库文件
+    │       └── progressbar.py  # 进度条模块
+    └── ftpserver  # ftp服务端主目录
+        ├── bin
+        │   └── ftp_server.py  # ftp服务端运行文件
+        ├── conf
+        │   └── conf.py  # 配置文件
+        ├── core
+        │   ├── server.py  # 服务端核心文件
+        │   └── users.py  # 用户相关文件
+        ├── database
+        │   └── userlist  # 用户信息
+        ├── home
+        │   ├── chenliang  # ftp个人家目录
+        │   └── guest  # 匿名用户目录
+        │       └── test  # 测试文件
+        ├── lib
+        │   ├── commons.py  # 库文件
+        │   └── progressbar.py  # 进度条文件
+        └── logs
+            └── ftp_server.log  # 日志文件
 
-16 directories, 18 files
+16 directories, 17 files
+
 ```
 
 ### QuickStart
 
 ```shell
-# sh bin/atm_admin.sh start  # 后台管理启动
-用户名（输入quit退出）：admin
-密码: 123
-认证成功，按任意键继续
+# python3 ftp_server.py
+FtpServer is running...
 
-**********************************
-* 欢迎来到768银行后台系统        *
-* Version: 1.0                   *
-* admin 您好                     *
-**********************************
-1、 添加账户
-2、 查看并管理账户
-3、 退出系统
-请选择：
+# python3 ftp_client.py
+欢迎使用Myftp
+ 输入help可查看帮助信息
+guest:>> help
 
-# sh bin/atm_client.sh start  # 后台客户端启动
-卡号（输入quit退出认证）: 123456789
-密码: 123
-认证成功，按任意键继续
+--------------------------------------------------------------------------------------------
+欢迎使用Myftp
+--------------------------------------------------------------------------------------------
 
-**********************************
-* 欢迎来到768银行                *
-* Version: 1.0                   *
-* chenliang 您好                 *
-* 当前余额: 15000.0              *
-**********************************
-1、 查看详细信息
-2、 查看账单
-3、 提现
-4、 还款
-5、 同行转账
-6、 查看消费流水
-7、 修改密码
-8、 退出
-请选择：
+      ls:  用于显示当前目录下文件或文件详细信息，格式：ls
+     get:  用于下载文件，格式：get path/to/filename [dst/path/to/]
+     put:  用于上传文件，格式：put path/to/filename，说明：path/to/格式要求同cd命令
+      rm:  用于删除文件或目录，格式：rm path/to[/filename]
+      cd:  用于切换服务端目录，格式：cd path/to/
+    auth:  用户认证，格式：auth，然后根据提示输入用户名及密码
+guest:>> ls
+total 0
+drwxr-xr-x  3 ChenLiang  staff  102  7  9 00:55 .
+drwxr-xr-x  4 ChenLiang  staff  136  7  8 23:49 ..
+-rw-r--r--  1 ChenLiang  staff    0  7  9 00:55 test
 
-# sh bin/shopping.sh start  # 购物程序启动
+guest:>> rm test
+操作执行成功
+guest:>> ls
+total 0
+drwxr-xr-x  2 ChenLiang  staff   68  7  9 00:56 .
+drwxr-xr-x  4 ChenLiang  staff  136  7  8 23:49 ..
 
-**********************************
-* 欢迎来到768购物中心            *
-* Version: 1.0                   *
-* 游客 您好                      *
-**********************************
-1、 购物
-2、 注册
-3、 登录
-4、 注销
-5、 修改密码
-6、 查看购物车
-7、 退出
-请选择：
-
-# sh bin/crontab_add.sh   # 计划任务添加
 ```
 
 ## 其他
@@ -144,5 +121,4 @@ day9
 * Blog:[SmartCZM](http://www.smartczm.com)
 项目的Bug和改进点，可以email的方式直接提交给我 thk.
 
-[Python Day5 Blog01](<https://www.smartczm.com/python_day5_01.html>)
-[Python Day5 Blog02](<https://www.smartczm.com/python_day5_02.html>)
+[Python Day9](<https://www.smartczm.com/python_day9.html>)

@@ -184,3 +184,18 @@
 2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
 2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
 2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
+2016-07-09 00:52:06 [INFO]: Client 127.0.0.1:58453 is connect the server
+2016-07-09 00:52:14 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58453)]!
+2016-07-09 00:52:20 [INFO]: recv instruction ['rm', '{"path" : "id_rsa.key"}'] from client [('127.0.0.1', 58453)]!
+2016-07-09 00:54:12 [INFO]: Client 127.0.0.1:58459 is connect the server
+2016-07-09 00:54:20 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58459)]!
+2016-07-09 00:54:24 [INFO]: recv instruction ['rm', '{"path" : "test"}'] from client [('127.0.0.1', 58459)]!
+2016-07-09 00:54:24 [INFO]: 错误的执行操作 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/test
+2016-07-09 00:54:29 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58459)]!
+2016-07-09 00:55:30 [INFO]: Has lost client 127.0.0.1:58459
+2016-07-09 00:55:52 [INFO]: Client 127.0.0.1:58465 is connect the server
+2016-07-09 00:55:56 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58465)]!
+2016-07-09 00:56:02 [INFO]: recv instruction ['rm', '{"path" : "test"}'] from client [('127.0.0.1', 58465)]!
+2016-07-09 00:56:02 [INFO]: 操作执行成功 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/test
+2016-07-09 00:56:15 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58465)]!
+2016-07-09 00:56:42 [INFO]: Has lost client 127.0.0.1:58465
