@@ -8,8 +8,8 @@ def bubblesort(numbers):
         for i in range(num):
             if numbers[i] > numbers[i + 1]:
                 numbers[i], numbers[i + 1] = numbers[i + 1], numbers[i]
-                # print(i, num)
-                # print(numbers)
+                print(i, num)
+                print(numbers)
     return numbers
 
 

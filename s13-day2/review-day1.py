@@ -45,12 +45,12 @@ name = input("username: ")
 age = int(input("age: "))
 job = input("job: ")
 
-msg = '''
+msg = """
 Information of below person: 
 NAME: %s
 AGE: %d
 JOB: %s
-''' % (name, age, job)
+""" % (name, age, job)
 
 # 变量
 name = 'admin'

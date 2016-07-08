@@ -7,7 +7,7 @@ MAX_PER_PAGE = 5
 
 # 银行相关
 ATM_LOG = '../log/atm_history.log'
-ACCOUNT_FILE = '../dbs/user_record.db'
+ACCOUNT_FILE = '../db/user_record.db'
 MAX_BALANCE = 15000.0
 DEFAULT_PASSWORD = '123'
 MAX_ERROR_COUNT = 3
@@ -27,8 +27,8 @@ REPAYMENT_DAY = 10
 
 
 # 商城相关
-CUSTOMER_FILE = '../dbs/userinfo.db'
-GOODS_FILE = '../dbs/list.db'
+CUSTOMER_FILE = '../db/userinfo.db'
+GOODS_FILE = '../db/list.db'
 SHOPPING_LOG = '../log/shopping_history.log'
 
 

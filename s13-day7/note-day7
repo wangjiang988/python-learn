@@ -1,0 +1,208 @@
+# 模块
+# http://www.cnblogs.com/wupeiqi/articles/4963027.html
+# configparser # 处理制定格式的文件
+
+
+# xml
+# 浏览器返回的字符串
+a. html
+b. json
+c. xml
+XML是实现不同语言或程序之间进行数据交换的协议，XML文件格式如下：
+    页面上做展示(字符串类型是一个XML格式数据)
+    配置文件(文件,内部数据XML格式)
+
+
+
+面向对象:
+http://www.cnblogs.com/wupeiqi/articles/5017742.html
+
+# 函数式编程
+def mail(email, message):
+    print("sendmail")
+    return True
+
+mail("chenliang@163.com", "thanks")
+
+
+
+
+面向对象: 分为类,对象
+
+class Foo:
+    # 方法
+    def mail(self, email, message):
+        print('sendmail')
+        return True
+
+
+
+# 调用
+1, 创建对象, 类名()
+obj = Foo()
+
+2, 通过对象去执行方法
+obj.mail("chenliang@163.com", "thanks")
+
+3, 类和对象
+    a, 创建类
+        class 类名:
+            def 方法名(self, xxxx):
+                pass
+    b, 创建对象
+        对象 = 类名()
+    c, 通过对象执行方法
+        对象.方法名(123)
+
+4, 数据库操作
+    函数式实现增\删\改\查:
+        def fetch(host, username, password, sql):
+            pass
+        def create(host, username, password, sql):
+            pass
+        def remove(host, username, password, sql):
+            pass
+        def modify(host, username, password, sql):
+            pass
+
+        fecth(...)
+
+
+    面向对象实现:
+        class SQLHelper:
+            def fetch(self, host, username, password, sql):
+                pass
+            def create(self, host, username, password, sql):
+                pass
+            def remove(self, host, username, password, sql):
+                pass
+            def modify(self, host, username, password, sql):
+                pass
+
+        obj = SQLHelper()
+        obj.fetch(......)
+
+
+        优化版本:
+        class SQLHelper:
+            def fetch(self, sql):
+                print(self.hhost)
+                print(self.uusername)
+                print(self.pwd)
+                print(sql)
+            def create(self, sql):
+                pass
+            def remove(self, sql):
+                pass
+            def modify(self, sql):
+                pass
+
+        obj = SQLHelper()
+        obj.hhost = "s1.salt.com"
+        obj.uusername = "chenliang"
+        obj.pwd = "123"
+        obj.fetch("select * from A")
+
+
+######### 什么时候用面向对象?
+# 当某一些函数具有相同参数时,就可以使用面向对象的方式,将参数值一次性的封装在对象,以后去对象取值.
+
+5, self 是什么鬼?
+
+self 是一个python自动会给传值的参数,多对象传输
+哪个对象执行方法,self就是谁
+
+
+
+        obj1 = SQLHelper()
+        obj1.hhost = "s1.salt.com"
+        obj1.uusername = "chenliang"
+        obj1.pwd = "123"
+        obj1.fetch("select * from A")    self = obj1
+
+
+        obj2 = SQLHelper()
+        obj2.hhost = "s2.salt.com"
+        obj2.uusername = "chenliang"
+        obj2.pwd = "123456"
+        obj2.fetch("select * from A")    self = obj2
+
+
+6, 构造方法
+类中有一个特殊的方式__init__,类()自动被执行
+
+
+7, 面向对象
+    三大特性: 封装, 继承, 多态
+
+    封装
+解决多对象传输:
+        class SQLHelper:
+            def __init__(self, a1, a2, a3):
+                print("自动执行init")
+                self.hhost = a1
+                self.uusername = a2
+                self.pwd = a3
+            def fetch(self, sql):
+                pass
+            def create(self, sql):
+                pass
+            def remove(self, sql):
+                pass
+            def modify(self, sql):
+                pass
+
+        obj1 = SQLHelper('c1.salt.com', 'alex', 123)
+        obj2 = SQLHelper('c2.salt.com', 'alwx', 123)
+        obj1.fetch("select * from A")
+        obj2.fetch("select * from A")
+
+
+        继承: 多继承
+
+
+
+作业: 选课系统
+
+思路:
+    管理员:
+        1, 创建老师(爱好, 姓名, 年龄, 资产默认0)
+        class Teacher:
+            def __init__(self, favor, name, age):
+                self.favor = favor
+                self.name = name
+                self.age = age
+                self.asset = 0
+
+            def jiaoxueshigu(self):
+                self.asset -= 1
+
+            def jiaqian(self, value):
+                self.asset += value
+
+        obj1 = Teacher(...)
+        obj2 = Teacher(...)
+        [obj1, obj2, obj3]
+        pickle.dump([obj1, obj2, obj3], 文件)
+        # Teacher 类型
+
+        2, 创建课程
+        li = pickle.load([obj1, obj2, obj3])
+        li[0]
+        class Book:
+            def __init__(self, 课程名, 课时费, 负责老师 = li[0])
+
+            def 上课
+                    返回给学生学习的内容
+                    负责给老师加钱li[0].gain(课时费)
+    学生:
+        类:
+        class Students:
+            def __init__(self, 选课)
+                选课 = [课程对象]
+
+            def 上课:
+                选课
+                1, 生物课
+                    课程对象.上课()
+

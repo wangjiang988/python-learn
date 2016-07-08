@@ -1,0 +1,186 @@
+2016-07-07 23:09:14 [INFO]: Client 127.0.0.1:57598 is connect the server
+2016-07-07 23:09:28 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:32 [INFO]: recv instruction ['cd', '{"path" : "/"}'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:36 [INFO]: recv instruction ['cd', '{"path" : "/home"}'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:39 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:52 [INFO]: recv instruction ['cd', '{"path" : "/Users/Haizhi"}'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:54 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57598)]!
+2016-07-07 23:09:59 [INFO]: Has lost client 127.0.0.1:57598
+2016-07-07 23:11:54 [INFO]: Client 127.0.0.1:57608 is connect the server
+2016-07-07 23:11:54 [INFO]: Client 127.0.0.1:57608 is connect the server
+2016-07-07 23:12:10 [INFO]: recv instruction ['cd', '{"path" : "zhaoxiaoyu"}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:10 [INFO]: recv instruction ['cd', '{"path" : "zhaoxiaoyu"}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:14 [INFO]: recv instruction ['cd', '{"path" : "."}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:14 [INFO]: recv instruction ['cd', '{"path" : "."}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:16 [INFO]: recv instruction ['cd', '{"path" : ".."}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:16 [INFO]: recv instruction ['cd', '{"path" : ".."}'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:36 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:12:36 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 57608)]!
+2016-07-07 23:30:43 [INFO]: Client 127.0.0.1:57657 is connect the server
+2016-07-07 23:31:09 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57657)]!
+2016-07-07 23:31:18 [INFO]: Has lost client 127.0.0.1:57657
+2016-07-07 23:33:51 [INFO]: Client 127.0.0.1:57660 is connect the server
+2016-07-07 23:33:54 [INFO]: recv instruction ['cd', '{"path" : "test"}'] from client [('127.0.0.1', 57660)]!
+2016-07-07 23:33:56 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57660)]!
+2016-07-07 23:34:01 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57660)]!
+2016-07-07 23:34:28 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57660)]!
+2016-07-07 23:34:34 [INFO]: Has lost client 127.0.0.1:57660
+2016-07-07 23:35:13 [INFO]: Client 127.0.0.1:57662 is connect the server
+2016-07-07 23:35:16 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57662)]!
+2016-07-07 23:35:52 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 57662)]!
+2016-07-08 23:26:42 [INFO]: Client 127.0.0.1:57778 is connect the server
+2016-07-08 23:26:49 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57778)]!
+2016-07-08 23:27:02 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57778)]!
+2016-07-08 23:28:03 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 57778)]!
+2016-07-08 23:28:14 [INFO]: recv instruction ['auth', '{"username":"zhaoxiaoyu", "password":"cbff36039c3d0212b3e34c23dcde1456"}'] from client [('127.0.0.1', 57778)]!
+2016-07-08 23:28:14 [ERROR]: Authentication fail wrong username or password from [('127.0.0.1', 57778)]
+2016-07-08 23:28:49 [INFO]: Has lost client 127.0.0.1:57778
+2016-07-09 00:18:02 [INFO]: Client 127.0.0.1:58086 is connect the server
+2016-07-09 00:18:17 [INFO]: Has lost client 127.0.0.1:58086
+2016-07-09 00:18:49 [INFO]: Client 127.0.0.1:58091 is connect the server
+2016-07-09 00:18:56 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58091)]!
+2016-07-09 00:19:17 [INFO]: recv instruction ['auth', '{"username":"chenliang", "password":"21218cca77804d2ba1922c33e0151105"}'] from client [('127.0.0.1', 58091)]!
+2016-07-09 00:19:17 [INFO]: 密码认证! from [('127.0.0.1', 58091)]
+2016-07-09 00:19:23 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58091)]!
+2016-07-09 00:19:26 [INFO]: Has lost client 127.0.0.1:58091
+2016-07-09 00:19:49 [INFO]: Client 127.0.0.1:58093 is connect the server
+2016-07-09 00:19:49 [INFO]: Client 127.0.0.1:58093 is connect the server
+2016-07-09 00:20:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:20:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:20:24 [INFO]: recv instruction ['put', '{"filename":"id_rsa.key", "file_size":887, "md5":"dabecdf7c2e7e25708a5630e95d37e97"}'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:20:24 [INFO]: recv instruction ['put', '{"filename":"id_rsa.key", "file_size":887, "md5":"dabecdf7c2e7e25708a5630e95d37e97"}'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:20:24 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key from client [('127.0.0.1', 58093)]
+2016-07-09 00:20:24 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key from client [('127.0.0.1', 58093)]
+2016-07-09 00:20:24 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key from client [('127.0.0.1', 58093)]
+2016-07-09 00:20:24 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key from client [('127.0.0.1', 58093)]
+2016-07-09 00:20:24 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp]
+2016-07-09 00:20:24 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp]
+2016-07-09 00:20:24 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp
+2016-07-09 00:20:24 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp
+2016-07-09 00:20:24 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp]
+2016-07-09 00:20:24 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/guest/id_rsa.key.ftp]
+2016-07-09 00:20:42 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:20:42 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58093)]!
+2016-07-09 00:21:27 [INFO]: Has lost client 127.0.0.1:58093
+2016-07-09 00:21:27 [INFO]: Has lost client 127.0.0.1:58093
+2016-07-09 00:21:27 [INFO]: Client 127.0.0.1:58094 is connect the server
+2016-07-09 00:21:27 [INFO]: Client 127.0.0.1:58094 is connect the server
+2016-07-09 00:21:27 [INFO]: Client 127.0.0.1:58094 is connect the server
+2016-07-09 00:21:29 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58094)]!
+2016-07-09 00:21:29 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58094)]!
+2016-07-09 00:21:29 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58094)]!
+2016-07-09 00:22:11 [INFO]: Has lost client 127.0.0.1:58094
+2016-07-09 00:22:11 [INFO]: Has lost client 127.0.0.1:58094
+2016-07-09 00:22:11 [INFO]: Has lost client 127.0.0.1:58094
+2016-07-09 00:23:03 [INFO]: Client 127.0.0.1:58101 is connect the server
+2016-07-09 00:23:03 [INFO]: Client 127.0.0.1:58101 is connect the server
+2016-07-09 00:23:03 [INFO]: Client 127.0.0.1:58101 is connect the server
+2016-07-09 00:23:03 [INFO]: Client 127.0.0.1:58101 is connect the server
+2016-07-09 00:23:19 [INFO]: recv instruction ['auth', '{"username":"chenliang", "password":"21218cca77804d2ba1922c33e0151105"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:19 [INFO]: recv instruction ['auth', '{"username":"chenliang", "password":"21218cca77804d2ba1922c33e0151105"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:19 [INFO]: recv instruction ['auth', '{"username":"chenliang", "password":"21218cca77804d2ba1922c33e0151105"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:19 [INFO]: recv instruction ['auth', '{"username":"chenliang", "password":"21218cca77804d2ba1922c33e0151105"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:19 [INFO]: 密码认证! from [('127.0.0.1', 58101)]
+2016-07-09 00:23:19 [INFO]: 密码认证! from [('127.0.0.1', 58101)]
+2016-07-09 00:23:19 [INFO]: 密码认证! from [('127.0.0.1', 58101)]
+2016-07-09 00:23:19 [INFO]: 密码认证! from [('127.0.0.1', 58101)]
+2016-07-09 00:23:21 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:21 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:21 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:21 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:24 [INFO]: recv instruction ['checkspacesize'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:27 [INFO]: recv instruction ['put', '{"filename":"CentOS-7-x86_64-Minimal-1503-01.iso", "file_size":666894336, "md5":"d07ab3e615c66a8b2e9a50f4852e6a77"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:27 [INFO]: recv instruction ['put', '{"filename":"CentOS-7-x86_64-Minimal-1503-01.iso", "file_size":666894336, "md5":"d07ab3e615c66a8b2e9a50f4852e6a77"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:27 [INFO]: recv instruction ['put', '{"filename":"CentOS-7-x86_64-Minimal-1503-01.iso", "file_size":666894336, "md5":"d07ab3e615c66a8b2e9a50f4852e6a77"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:27 [INFO]: recv instruction ['put', '{"filename":"CentOS-7-x86_64-Minimal-1503-01.iso", "file_size":666894336, "md5":"d07ab3e615c66a8b2e9a50f4852e6a77"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:23:27 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:27 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:27 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:27 [INFO]: Begin recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:54 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:54 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:54 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:54 [INFO]: End recv file  /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso from client [('127.0.0.1', 58101)]
+2016-07-09 00:23:57 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: Begin validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp
+2016-07-09 00:23:57 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp
+2016-07-09 00:23:57 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp
+2016-07-09 00:23:57 [INFO]: 认证成功 /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp
+2016-07-09 00:23:57 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:23:57 [INFO]: End validate md5 [/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso.ftp]
+2016-07-09 00:24:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:49 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:49 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:49 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:49 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:49 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:24:49 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:24:49 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:24:49 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:24:52 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:52 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:52 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:24:52 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:20 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:20 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:20 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:20 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:24 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:24 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:24 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:24 [INFO]: recv instruction ['rm', '{"path" : "CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:24 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:24 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:24 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:24 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:31 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:31 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:31 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:31 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:35 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:48 [INFO]: recv instruction ['rm', '{"path" : "home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:48 [INFO]: recv instruction ['rm', '{"path" : "home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:48 [INFO]: recv instruction ['rm', '{"path" : "home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:48 [INFO]: recv instruction ['rm', '{"path" : "home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:25:48 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:48 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:48 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:25:48 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:00 [INFO]: recv instruction ['rm', '{"path" : "/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:00 [INFO]: recv instruction ['rm', '{"path" : "/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:00 [INFO]: recv instruction ['rm', '{"path" : "/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:00 [INFO]: recv instruction ['rm', '{"path" : "/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:00 [INFO]: 文件和路径不存在 to rm /home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:00 [INFO]: 文件和路径不存在 to rm /home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:00 [INFO]: 文件和路径不存在 to rm /home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:00 [INFO]: 文件和路径不存在 to rm /home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:11 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:11 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:11 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:11 [INFO]: recv instruction ['ls'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:26 [INFO]: recv instruction ['rm', '{"path" : "/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:26 [INFO]: recv instruction ['rm', '{"path" : "/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:26 [INFO]: recv instruction ['rm', '{"path" : "/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:26 [INFO]: recv instruction ['rm', '{"path" : "/Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso"}'] from client [('127.0.0.1', 58101)]!
+2016-07-09 00:26:26 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:26 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:26 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:26 [INFO]: 文件和路径不存在 to rm /Users/HaiZhi/PycharmProjects/python-learn/s13-day9/day9/homework/ftpserver/home/chenliang/CentOS-7-x86_64-Minimal-1503-01.iso
+2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
+2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
+2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101
+2016-07-09 00:26:34 [INFO]: Has lost client 127.0.0.1:58101

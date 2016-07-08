@@ -23,6 +23,7 @@ def outer(func):
     :param func:
     :return:
     """
+
     def innder():
         if LOGIN_INFO['is_login']:
             r = func()
@@ -39,12 +40,14 @@ def outer1(func):
     :param func:
     :return:
     """
+
     def innder(*args, **kwargs):
         if USER_TYPE['is_admin']:
             r = func(*args, **kwargs)
             return r
         else:
             print("\033[31;1m没有权限操作,请联系管理员.\033[0m")
+
     return innder
 
 
@@ -185,7 +188,9 @@ def fetch(user):
                     else:
                         priv = "User"
                     print("\033[32;1m查询信息如下:\033[0m")
-                    print(u"\033[34;1m用户名: {0:s}  Password: ****** Email: {1:s}  Phone: {2:s}  账号类型: {3:s}\033[0m".format(name, mail, phone, priv))
+                    print(
+                        u"\033[34;1m用户名: {0:s}  Password: ****** Email: {1:s}  Phone: {2:s}  账号类型: {3:s}\033[0m".format(
+                            name, mail, phone, priv))
                 else:
                     sys.exit(4)
     except:

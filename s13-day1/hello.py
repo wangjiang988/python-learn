@@ -11,7 +11,7 @@ age = 26
 print(name, age)
 """
 
-'''
+"""
 name = "Chen Lang"
 age = 21
 province = "Si Chuan"
@@ -19,7 +19,7 @@ company = "HaiZhi"
 GfAge = 24
 daughter_age = 1
 _name = "Fname"
-'''
+"""
 
 # Py开发规范:
 
@@ -39,20 +39,20 @@ name = input("请输入您的姓名: ")
 age = int(input("请输入您的年龄: "))
 job = input("请输入你的职位: ")
 
-'''
+"""
 print("Name is: ", name)
 print("Age is:", age)
 print("Job is: ", job)
-'''
+"""
 
-msg = '''
+msg = """
 用户%s输入的信息如下 :
 ---------------------
 姓名: %s
 年龄: %d
 职位: %s
 ---------END---------
-''' % (name, name, age, job)
+""" % (name, name, age, job)
 
 print(msg)
 

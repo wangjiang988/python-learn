@@ -1,0 +1,22 @@
+#!/usr/bin/env python3.5
+# -*- coding: utf-8 -*-
+# Author: ChenLiang
+import socket
+ip_port = ('127.0.0.1', 9999)
+
+# 准备状态
+s = socket.socket()
+
+# 拨号
+s.connect(ip_port)
+
+# 发送消息
+send_data = input(">>: ").strip()
+s.send(bytes(send_data, encoding='utf8'))
+
+# 接收消息
+recv_data = s.recv(1024)
+print(str(recv_data, encoding='utf8'))
+
+# 结束通话
+s.close()

@@ -143,3 +143,55 @@ def logger(log_file_name):
     root_logger.addHandler(handler)
     root_logger.setLevel(logging.INFO)
     return root_logger
+
+
+def b2s(b_str, code='utf8'):
+    return str(b_str, code)
+
+
+def s2b(s_str, code='utf8'):
+    return bytes(s_str, code)
+
+
+def filemd5(filename):
+    import os
+    import hashlib
+    if not os.path.isfile(filename):
+        return None
+    myhash = hashlib.md5()
+    f = open(filename, 'rb')
+    while True:
+        b = f.read(8096)
+        if not b:
+            break
+        myhash.update(b)
+    f.close()
+    return myhash.hexdigest()
+
+
+def get_dir_size(filename):
+    import os
+    size = 0
+    for (root, dirs, files) in os.walk(filename):
+        for name in files:
+            try:
+                size += getsize(join(root, name))
+            except:
+                continue
+    return size
+
+
+def process_bar(start, end, width=50):
+    str_num = "{:.2f}".format(start / end * 100)
+    front = int(start * width / end)
+    front_tag = "#" * front
+    end_tag = " " * (width - front)
+    tag = "{}{}".format(front_tag, end_tag)
+    str_tag = "{:<7} [{}] {:,}\r".format(str_num, tag, end)
+    import sys
+    sys.stdout.write(str_tag)
+    sys.stdout.flush()
+    # time.sleep(0.1)
+    if len(str_tag) == width:
+        sys.stdout.write('\n')
+        sys.stdout.flush()

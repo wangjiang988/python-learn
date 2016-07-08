@@ -17,21 +17,21 @@ if __name__ == '__main__':
     cu = customer()
     atm = atm()
     def print_menu(menu_list):
-        '''
+        """
         输出菜单函数，用于显示菜单和获取用户输入
         :param menu_list: 菜单列表
         :return: 返回用户输入的选项
-        '''
+        """
         for item in enumerate(menu_list, 1):
             print('%s、 %s' %item) # 通过遍历打印菜单项
         chose = input('请选择：').strip() # 获取用户输入
         return chose #返回用户输入
 
     def print_welcome():
-        '''
+        """
         输出系统信息和用户信息
         :return: 无
-        '''
+        """
         customer = shopping.get_crurrent_customer() # 获取当前用户所有信息
         if not customer:
             customer = {
@@ -39,19 +39,19 @@ if __name__ == '__main__':
                 "cart": []
             }
         #print(account)
-        welcome_info = '''
+        welcome_info = """
 **********************************
 * %s *
 * %s *
 * %s *
-**********************************''' %(commons.strleft('欢迎来到65商城', 30), commons.strleft('Version: 2.0', 30), commons.strleft('%s 您好' %customer['name'], 30))
+**********************************""" %(commons.strleft('欢迎来到65商城', 30), commons.strleft('Version: 2.0', 30), commons.strleft('%s 您好' %customer['name'], 30))
         print(welcome_info)
 
     def register():
-        '''
+        """
         注册用户函数
         :return: 无
-        '''
+        """
         customer = shopping.get_crurrent_customer() # 获取当前用户
         # 判断当前用户是否存在，如果存在说明已经登录，将不能注册新的用户
         if not customer:
@@ -108,10 +108,10 @@ if __name__ == '__main__':
             input('您已经登录商城，如需要注册请退出登录')
 
     def login():
-        '''
+        """
         登录函数
         :return: 无
-        '''
+        """
         import getpass
         # 获取当前用户
         customer = shopping.get_crurrent_customer()
@@ -141,10 +141,10 @@ if __name__ == '__main__':
             input('您已经登录，不能重复登录，按任意键继续')
 
     def logout():
-        '''
+        """
         注销函数
         :return: 无
-        '''
+        """
         # 获取当前用户
         customer = shopping.get_crurrent_customer()
         # 判断是否的登录，只有登录的情况下才能注销
@@ -157,11 +157,11 @@ if __name__ == '__main__':
             input('您还没有登录，按任意键继续')
 
     def show_goods_info(goods):
-        '''
+        """
         显示商品详细信息函数
         :return: 无
-        '''
-        goods_info = '''
+        """
+        goods_info = """
 -----------------------------------------------------
          编号: %s
      商品名称: %s
@@ -171,14 +171,14 @@ if __name__ == '__main__':
 -----------------------------------------------------
     %s
 -----------------------------------------------------
-''' %( goods['id'],  goods['name'], goods['price'], goods['class'], goods['info'])
+""" %( goods['id'],  goods['name'], goods['price'], goods['class'], goods['info'])
         print(goods_info)
 
     def shop():
-        '''
+        """
         购物函数
         :return: 无
-        '''
+        """
         # 获取所有商品列表
         all_goods = goo.get_all_goods()
         # 初始化页码
@@ -245,11 +245,11 @@ if __name__ == '__main__':
                 flag = False
 
     def show_shopping_cart():
-        '''
+        """
         打印购物车函数
         打印购物车列表和操作选项
         :return: 返回total总金额
-        '''
+        """
         total = 0 # 初始化购物总金额
         print('%s %s    %s%s    %s%s\n%s' %(commons.strleft('序号',8),commons.strleft('商品编号',8), commons.strleft('商品名称',50), commons.strright('单价',8), commons.strright('个数',8), commons.strright('小计',8), '-'*100))
         cart_list = shopping.get_cart()# 获取购物车列表
@@ -266,10 +266,10 @@ if __name__ == '__main__':
         return total
 
     def shopping_cart():
-        '''
+        """
         购物车函数
         :return: 无
-        '''
+        """
         while True:
             total = show_shopping_cart() # 调用打印购物车函数，并返回购物车总金额
             chose = input("请选择您的操作：").strip() # 获取用户输入操作选项
@@ -329,10 +329,10 @@ if __name__ == '__main__':
                         input('删除操作已经取消，按任意键继续')
 
     def change_password():
-        '''
+        """
         修改密码函数
         :return: 无
-        '''
+        """
         flag = True
         while flag:
             customer = shopping.get_crurrent_customer()

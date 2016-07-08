@@ -81,13 +81,13 @@ def pay_check():
 
 
 def main():
-    menu = '''
+    menu = """
     1.  账户信息
     2.  还款
     3.  取款
     4.  转账
     5.  账单
-    '''
+    """
     menu_dic = {
         '1': account_info,
         '2': repay,

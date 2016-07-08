@@ -9,23 +9,38 @@
 
 ## 背景介绍
 
-> 需要对账号管理平台进行用户相关操作
+> 通过re编写一个计算器
 
 ## 程序功能介绍
 
-> 用户管理操作
+> 计算器
 
-* 添加用户
-* 查询用户
-* 删除用户
-* 修改用户密码
-* 修改用户权限类型
+```python
+python3 calculator.py
+计算公式案例: 1-2*-30/-12*(-20+200*-3/-200*-300-100)
+请输入你要计算的公式: 1-2*-30/-12*(-20+200*-3/-200*-300-100*(50-100*30))
+
+# 处理第一次括号中表达式的结果
+before： 1-2*-30/-12*(-20+200*-3/-200*-300-100*(50-100*30))
+50-100*30=-2950.0
+after： 1-2*-30/-12*(-20+200*-3/-200*-300-100*-2950.0)
+========== 上一次计算结束 ==========
+
+# 处理第二次括号中表达式的结果
+before： 1-2*-30/-12*(-20+200*-3/-200*-300-100*-2950.0)
+-20+200*-3/-200*-300-100*-2950.0=294080.0
+after： 1-2*-30/-12*294080.0
+========== 上一次计算结束 ==========
+
+# 整体结果计算
+-1470399.0
+```
 
 ## 使用说明
 
 ### 获取代码
 
-[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day4/day4>)
+[项目地址](<https://github.com/smartczm/python-learn/tree/master/s13-day6/day6>)
 
 ### 环境需求 
 
@@ -34,20 +49,22 @@
 ### 目录介绍
 
 ```txt
-day4  # 项目主目录
+day6  # 项目主目录
 ├── README.md  # README文件
-├── admin.png  # 程序流程图
+├── calculator.png  # 程序流程图
 └── homework  # 程序工作目录
-    ├── db  # 用户管理文件
-    └── user_admin.py  # 主程序
+    └── calculator.py  # 主程序 通过re实现计算器
+    └── calc.py  # 主程序 通过math\re\eval实现计算器
 ```
 
 ### QuickStart
 
 ```shell
-chmod +x user_admin.py ; ./user_admin.py     
+chmod +x calculator.py ; ./calculator.py
+chmod +x calc.py ; ./calc.py 
 or    
- python3 user_admin.py
+ python3 calculator.py
+ python3 calc.py
 ```
 
 ## 其他
@@ -58,5 +75,6 @@ or
 * Blog:[SmartCZM](http://www.smartczm.com)
 项目的Bug和改进点，可以email的方式直接提交给我 thk.
 
-[Python Day5 Blog01](<https://www.smartczm.com/python_day5_01.html>)
-[Python Day5 Blog02](<https://www.smartczm.com/python_day5_02.html>)
+[Python Day6 前半部分](<https://www.smartczm.com/python_day5_02.html>)
+
+[Python Day6 后半部分](<https://www.smartczm.com/python_day6.html>)

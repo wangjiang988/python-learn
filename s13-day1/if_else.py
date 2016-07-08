@@ -4,7 +4,7 @@
 
 # 多重if判断
 # import getpass
-'''
+"""
 user = 'admin'
 passwd = 'alex3714'
 
@@ -21,7 +21,7 @@ if user == username:
 else:
     print("username is invalid...")
 
-'''
+"""
 
 # 优化代码,减少多重判断
 
