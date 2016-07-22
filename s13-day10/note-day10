@@ -1,0 +1,38 @@
+# IO多路复用, 多进程, 多线程, 协程
+
+大纲:
+
+知识点:
+
+Python2.7 多继承, Python3.5 多继承
+
+socketserver 源码
+    - 支持并发处理socekt
+
+汉字转UTF8: 3个字节
+汉字转GBK: 2个字节
+
+subprocess -> windows -> gbk编码的字节
+
+断点续传:
+    文件:
+        a, 追加
+        w, 清空写
+    文件指针:
+        seek(num)
+
+
+
+作用域:
+    Python中无块级作用域
+    Java/C# 不可以
+    Python/Javascript   可以
+
+    if 1==1:
+        name = 'alex'
+
+    print(name)
+
+Python2.7 多继承, Python3.5 多继承
+
+    在Python3里面默认继承object类, 叫新式类 Python2里面默认不继承object类, 叫经典类. 查找一条道走到黑;
