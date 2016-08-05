@@ -70,7 +70,9 @@ Query OK, 0 rows affected (0.03 sec)
 
 mysql> flush privileges;
 Query OK, 0 rows affected (0.02 sec)
-- 配置数据库链接，修改主配置文件DBS和DB字段
+
+- 注意: 需要先配置数据库链接，修改主配置文件DBS和DB字段
+
 - 初始化数据库表
 $ python3 manager.py init_database
 数据库初始化...

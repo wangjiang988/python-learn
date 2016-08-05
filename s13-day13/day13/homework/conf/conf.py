@@ -13,7 +13,7 @@ ERROR_INFO = {
     '5001': '连接失败!',
 }
 DBS = {"chenliang": "mysql+pymysql://chenliang:123456@172.16.131.129:3306/chenliang",  # 测试环境数据库
-       "online": "mysql+pymysql://chenliang:123456@localhost:3306/online",  # 正式环境数据库
+       "online": "mysql+pymysql://root:123456@localhost:3306/online",  # 正式环境数据库
        }
 
 DB = DBS['chenliang']
