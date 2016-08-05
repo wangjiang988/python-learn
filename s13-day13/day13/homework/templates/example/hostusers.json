@@ -1,0 +1,25 @@
+[
+  {
+    "username" : "root",
+    "password" : "123456",
+    "hostname" : "web-001",
+    "auth_type" : "ssh-password"
+  },
+  {
+    "username" : "root",
+    "hostname" : "web-002",
+    "auth_type" : "ssh-key"
+  },
+  {
+    "username" : "root",
+    "password" : "123456",
+    "hostname" : "test",
+    "auth_type" : "ssh-key"
+  },
+  {
+    "username" : "chenliang",
+    "password" : "123456",
+    "hostname" : "cluster-001",
+    "auth_type" : "ssh-password"
+  }
+]

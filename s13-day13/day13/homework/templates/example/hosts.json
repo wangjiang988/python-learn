@@ -1,0 +1,16 @@
+[
+  {
+    "hostname" : "web-001",
+    "ip_addr" : "172.16.3.250",
+    "port" : 22
+  },
+  {
+    "hostname" : "web-002",
+    "ip_addr" : "172.16.3.251",
+    "port" : 22
+  },
+  {
+    "hostname" : "cluster-001",
+    "ip_addr" : "172.16.131.129"
+  }
+]

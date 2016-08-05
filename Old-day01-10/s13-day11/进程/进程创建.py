@@ -17,12 +17,12 @@
 
 # from multiprocessing import Process, Array
 #
-# temp = Array('i', [11, 22, 33, 44])
+# templates = Array('i', [11, 22, 33, 44])
 #
 #
 # def Foo(i):
-#     temp[i] = 100 + i
-#     for item in temp:
+#     templates[i] = 100 + i
+#     for item in templates:
 #         print(i, '----->', item)
 #
 #

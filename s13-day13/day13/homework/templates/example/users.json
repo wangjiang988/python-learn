@@ -1,0 +1,8 @@
+[
+  {
+    "username" : "chenliang",
+    "password" : "123456",
+    "hostusers" : [{"username":"root", "hostname":"web-001"}],
+    "groups" : ["cluster"]
+  }
+]

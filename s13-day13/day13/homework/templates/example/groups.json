@@ -1,0 +1,10 @@
+[
+  {
+    "name" : "web",
+    "hostusers" : [{"username":"root", "hostname":"web-001"},{"username":"root","hostname":"web-002"}]
+  },
+  {
+    "name" : "cluster",
+    "hostusers" : [{"username":"chenliang", "hostname":"cluster-001"}]
+  }
+]

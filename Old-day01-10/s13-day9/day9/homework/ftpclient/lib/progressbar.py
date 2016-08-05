@@ -75,7 +75,7 @@ class ProgressBar(object):
                  left_justify=True, fd=sys.stderr):
         """Initializes a progress bar with sane defaults."""
 
-        # Don't share a reference with any other progress bars
+        # Don't templates a reference with any other progress bars
         if widgets is None:
             widgets = list(self._DEFAULT_WIDGETS)
 
